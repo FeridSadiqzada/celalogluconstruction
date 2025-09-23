@@ -9,6 +9,9 @@
 .env.backup
 .env.production
 .env.netlify
+bootstrap/cache/config.php
+bootstrap/cache/routes.php
+bootstrap/cache/services.php
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
