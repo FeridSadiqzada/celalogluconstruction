@@ -9,7 +9,7 @@
 
 [[redirects]]
   from = "/*"
-  to = "/index.php"
+  to = "/.netlify/functions/index"
   status = 200
 
 [functions]
