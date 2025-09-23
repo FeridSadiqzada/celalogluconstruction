@@ -1,7 +1,0 @@
-/vendor
-/storage
-/bootstrap/cache
-/.env*
-/node_modules/.cache
-/public/hot
-/public/storage
