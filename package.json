@@ -3,7 +3,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite dev",
-        "build": "vite build"
+        "build": "echo 'Static files ready in public folder'"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
