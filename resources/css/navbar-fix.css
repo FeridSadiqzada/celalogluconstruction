@@ -1,0 +1,39 @@
+/* Navbar initial state - transparent with white text */
+#navbar {
+    background: transparent !important;
+}
+
+#navbar .nav-link {
+    color: white !important;
+}
+
+#navbar .nav-link:hover {
+    color: #67e8f9 !important; /* cyan-300 */
+}
+
+#navbar .nav-underline {
+    background-color: white !important;
+}
+
+#navbar #mobile-menu-btn {
+    color: white !important;
+}
+
+#navbar #mobile-menu-btn:hover {
+    color: #67e8f9 !important; /* cyan-300 */
+}
+
+/* Mobile menu initial state */
+#mobile-menu {
+    background: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(12px) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+#mobile-menu .mobile-nav-link {
+    color: white !important;
+}
+
+#mobile-menu .mobile-nav-link:hover {
+    color: #67e8f9 !important; /* cyan-300 */
+}

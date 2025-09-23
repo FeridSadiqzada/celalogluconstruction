@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: celaloglu_app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - celaloglu_network
+    depends_on:
+      - db
+      - redis
+
+  webserver:
+    image: nginx:alpine
+    container_name: celaloglu_webserver
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - celaloglu_network
+    depends_on:
+      - app
+
+  db:
+    image: mariadb:10.6
+    container_name: celaloglu_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: celaloglu_insaat
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_PASSWORD: user_password
+      MYSQL_USER: celaloglu_user
+    volumes:
+      - dbdata:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - celaloglu_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: celaloglu_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    networks:
+      - celaloglu_network
+
+networks:
+  celaloglu_network:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local

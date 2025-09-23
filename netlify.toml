@@ -1,0 +1,15 @@
+[build]
+  publish = "public"
+  command = "composer install --no-dev --optimize-autoloader && npm run build && php artisan config:cache"
+
+[build.environment]
+  NODE_VERSION = "18"
+  PHP_VERSION = "8.3"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.php"
+  status = 200
+
+[functions]
+  directory = "netlify/functions"
