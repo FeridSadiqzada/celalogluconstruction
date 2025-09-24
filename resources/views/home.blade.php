@@ -1,44 +1,83 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+.carousel-slide {
+    transition: opacity 2s ease-in-out, transform 20s ease-in-out;
+    background-attachment: fixed;
+}
+
+.carousel-slide.active {
+    transform: scale(1.02);
+}
+
+/* Ensure proper centering for 4:3 images on wide screens */
+@media (min-aspect-ratio: 16/9) {
+    .carousel-slide {
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .carousel-slide {
+        background-size: cover !important;
+        background-position: center center !important;
+        background-attachment: scroll;
+    }
+}
+</style>
 <div class="relative">
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden py-8 md:py-12">
-        <!-- Animated Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-600">
-            <div class="absolute inset-0 bg-black/20"></div>
-            <!-- Floating Elements -->
-            <div class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
-            <div class="absolute top-40 right-20 w-16 h-16 bg-cyan-300/20 rounded-full animate-bounce"></div>
-            <div class="absolute bottom-40 left-20 w-12 h-12 bg-blue-300/30 rounded-full animate-ping"></div>
-            <div class="absolute bottom-20 right-10 w-24 h-24 bg-white/5 rounded-full animate-pulse"></div>
+        <!-- Image Carousel Background -->
+        <div class="absolute inset-0">
+            <!-- Carousel Images -->
+            <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-2000 ease-in-out" 
+                 style="background-image: url('{{ asset('images/carousel1.jpg') }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-2000 ease-in-out" 
+                 style="background-image: url('{{ asset('images/carousel2.jpg') }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-2000 ease-in-out" 
+                 style="background-image: url('{{ asset('images/carousel3.jpg') }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-2000 ease-in-out" 
+                 style="background-image: url('{{ asset('images/carousel4.jpg') }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-2000 ease-in-out" 
+                 style="background-image: url('{{ asset('images/carousel5.jpg') }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+            
+            <!-- Subtle Floating Elements -->
+            <div class="absolute top-20 right-20 w-16 h-16 bg-white/5 rounded-full animate-pulse"></div>
+            <div class="absolute bottom-20 left-20 w-12 h-12 bg-white/5 rounded-full animate-pulse"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center text-white py-4 md:py-8">
             <!-- Main Content -->
             <div class="animate-fade-in-up">
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-                    <span class="inline">Cəlaloğlu </span>
-                    <span class="inline bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">İnşaat</span>
-                </h1>
-                <p class="text-xl md:text-2xl lg:text-3xl mb-8 max-w-4xl mx-auto text-blue-100 leading-relaxed">
+                <p class="text-xl md:text-2xl mb-16 max-w-3xl mx-auto text-white/90 leading-relaxed font-light">
                     Keyfiyyətli tikinti xidmətləri ilə arzularınızı gerçəkləşdiririk
-                </p>
-                <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto text-blue-200">
-                    15+ il təcrübə • 500+ layihə • 100% məmnuniyyət zəmanəti
                 </p>
             </div>
 
             <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16 animate-fade-in-up animation-delay-300">
-                <a href="#services" class="group bg-white text-[#1E9BF0] hover:bg-blue-50 font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl inline-flex items-center gap-3">
-                    <svg class="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20 animate-fade-in-up animation-delay-300">
+                <a href="#services" class="group bg-transparent border-2 border-white hover:bg-white hover:text-[#1E9BF0] font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
+                    <svg class="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                     </svg>
                     Xidmətlərimizə Bax
                 </a>
-                <a href="/elaqe" class="group bg-transparent border-2 border-white hover:bg-white hover:text-[#1E9BF0] font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
-                    <svg class="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="/elaqe" class="group bg-transparent border-2 border-white hover:bg-white hover:text-[#1E9BF0] font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
+                    <svg class="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                     </svg>
                     Pulsuz Məsləhət
@@ -46,24 +85,24 @@
             </div>
 
             <!-- Stats -->
-            <div id="stats-section" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto animate-fade-in-up animation-delay-500">
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-bold text-cyan-300 mb-2">
+            <div id="stats-section" class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto animate-fade-in-up animation-delay-500">
+                <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl py-8 px-6 border border-white/20">
+                    <div class="text-5xl md:text-6xl font-bold text-white mb-3">
                         <span class="counter" data-target="15">0</span>+
                     </div>
-                    <div class="text-blue-200">İl Təcrübə</div>
+                    <div class="text-white/80 text-lg font-medium">İl Təcrübə</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-bold text-cyan-300 mb-2">
+                <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl py-8 px-6 border border-white/20">
+                    <div class="text-5xl md:text-6xl font-bold text-white mb-3">
                         <span class="counter" data-target="500">0</span>+
                     </div>
-                    <div class="text-blue-200">Tamamlanmış Layihə</div>
+                    <div class="text-white/80 text-lg font-medium">Tamamlanmış Layihə</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-bold text-cyan-300 mb-2">
+                <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl py-8 px-6 border border-white/20">
+                    <div class="text-5xl md:text-6xl font-bold text-white mb-3">
                         <span class="counter" data-target="100">0</span>%
                     </div>
-                    <div class="text-blue-200">Müştəri Məmnuniyyəti</div>
+                    <div class="text-white/80 text-lg font-medium">Müştəri Məmnuniyyəti</div>
                 </div>
             </div>
         </div>
@@ -576,7 +615,39 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Check immediately on load
     setTimeout(checkAndAnimateCounters, 500);
+    
+    // Carousel functionality
+    initCarousel();
 });
+
+// Carousel functionality
+function initCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentSlide = 0;
+    
+    if (slides.length === 0) return;
+    
+    // Set initial state
+    slides[0].classList.add('active');
+    
+    function showNextSlide() {
+        // Remove active class from current slide
+        slides[currentSlide].classList.remove('active');
+        slides[currentSlide].style.opacity = '0';
+        
+        // Move to next slide
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Show next slide with delay for smooth transition
+        setTimeout(() => {
+            slides[currentSlide].style.opacity = '1';
+            slides[currentSlide].classList.add('active');
+        }, 100);
+    }
+    
+    // Change slide every 6 seconds for slower, more elegant transition
+    setInterval(showNextSlide, 6000);
+}
 </script>
 
 @endsection

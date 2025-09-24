@@ -68,6 +68,10 @@
                             Haqqımızda
                             <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                         </a>
+                        <a href="/lisenziyalar" class="nav-link text-white hover:text-cyan-300 font-medium transition-colors duration-200 relative group">
+                            Lisenziyalar
+                            <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
+                        </a>
                         <a href="/elaqe" class="bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] hover:from-[#0F7BC7] hover:to-[#6B7280] text-white font-medium py-3 px-6 rounded-full transition-all duration-200 transform hover:scale-105 shadow-lg">
                             Əlaqə
                         </a>
@@ -94,6 +98,7 @@
                         <a href="/layiheler" class="mobile-nav-link block text-white hover:text-cyan-300 font-medium transition-colors duration-200" @click="closeMenu()">Layihələr</a>
                         <a href="/terefdaslar" class="mobile-nav-link block text-white hover:text-cyan-300 font-medium transition-colors duration-200" @click="closeMenu()">Tərəfdaşlar</a>
                         <a href="/haqqimizda" class="mobile-nav-link block text-white hover:text-cyan-300 font-medium transition-colors duration-200" @click="closeMenu()">Haqqımızda</a>
+                        <a href="/lisenziyalar" class="mobile-nav-link block text-white hover:text-cyan-300 font-medium transition-colors duration-200" @click="closeMenu()">Lisenziyalar</a>
                         <a href="/elaqe" class="block bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] text-white font-medium py-3 px-6 rounded-full text-center transition-all duration-200" @click="closeMenu()">Əlaqə</a>
                     </div>
                 </div>
@@ -152,6 +157,7 @@
                             <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Xidmətlərimiz</a></li>
                             <li><a href="/layiheler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Layihələr</a></li>
                             <li><a href="/terefdaslar" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Tərəfdaşlar</a></li>
+                            <li><a href="/lisenziyalar" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Lisenziyalar</a></li>
                             <li><a href="/blog" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Blog</a></li>
                         </ul>
                     </div>

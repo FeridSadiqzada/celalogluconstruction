@@ -39,6 +39,11 @@ Route::get('/elaqe', function () {
     return view('coming-soon', ['pageTitle' => 'Əlaqə']);
 })->name('contact');
 
+// Licenses
+Route::get('/lisenziyalar', function () {
+    return view('licenses');
+})->name('licenses');
+
 // Blog - Coming Soon
 Route::get('/blog', function () {
     return view('coming-soon', ['pageTitle' => 'Blog']);
