@@ -36,6 +36,15 @@ if [ -d .git ]; then
     git pull origin main || echo "⚠️  Could not pull from git"
 fi
 
+# Build assets locally first
+echo "🔨 Building assets..."
+if command -v npm &> /dev/null; then
+    npm install
+    npm run build
+else
+    echo "⚠️  npm not found, skipping asset build"
+fi
+
 # Build and start containers
 echo "🔨 Building Docker images..."
 docker-compose build --no-cache
@@ -50,9 +59,19 @@ sleep 30
 # Run Laravel setup commands
 echo "⚙️ Setting up Laravel..."
 docker-compose exec -T app php artisan key:generate --force
+
+# Clear any existing caches first
+docker-compose exec -T app php artisan config:clear
+docker-compose exec -T app php artisan route:clear
+docker-compose exec -T app php artisan view:clear
+docker-compose exec -T app php artisan cache:clear
+
+# Run migrations and seed
 docker-compose exec -T app php artisan migrate --force
 docker-compose exec -T app php artisan db:seed --force
 docker-compose exec -T app php artisan storage:link
+
+# Cache configurations
 docker-compose exec -T app php artisan config:cache
 docker-compose exec -T app php artisan route:cache
 docker-compose exec -T app php artisan view:cache
