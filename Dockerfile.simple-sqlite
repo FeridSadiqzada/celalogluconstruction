@@ -45,9 +45,9 @@ RUN cp .env.sqlite .env \
     && chown -R www-data:www-data storage bootstrap/cache database \
     && chmod -R 775 storage bootstrap/cache database
 
-# Detailed nginx config for Laravel
+# Detailed nginx config for Laravel (Port 5555)
 RUN echo 'server { \
-    listen 80; \
+    listen 5555; \
     server_name _; \
     root /var/www/html/public; \
     index index.php index.html; \
@@ -103,7 +103,7 @@ stderr_logfile=/dev/stderr \
 stderr_logfile_maxbytes=0' > /etc/supervisor/conf.d/supervisord.conf
 
 # Expose port
-EXPOSE 80
+EXPOSE 5555
 
 # Start supervisor directly
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

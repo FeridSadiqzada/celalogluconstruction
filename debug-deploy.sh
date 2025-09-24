@@ -11,7 +11,7 @@ docker rm celaloglu-debug 2>/dev/null || true
 # Build and run
 docker run -d \
   --name celaloglu-debug \
-  -p 80:80 \
+  -p 5555:5555 \
   --restart unless-stopped \
   $(docker build -q -f Dockerfile.simple-sqlite .)
 
@@ -36,7 +36,7 @@ if docker ps | grep -q celaloglu-debug; then
     
     # Test website
     echo "🌐 Testing website..."
-    curl -I http://localhost || echo "Website not responding"
+    curl -I http://localhost:5555 || echo "Website not responding"
     
     echo ""
     echo "📊 Recent logs:"

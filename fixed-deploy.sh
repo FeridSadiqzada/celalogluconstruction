@@ -11,7 +11,7 @@ docker rm celaloglu-fixed 2>/dev/null || true
 # Build and run with fixed supervisor config
 docker run -d \
   --name celaloglu-fixed \
-  -p 80:80 \
+  -p 5555:5555 \
   --restart unless-stopped \
   $(docker build -q -f Dockerfile.simple-sqlite .)
 
@@ -27,8 +27,8 @@ if docker ps | grep -q celaloglu-fixed; then
     docker logs --tail 10 celaloglu-fixed
     
     echo ""
-    echo "🌐 Website: http://localhost"
-    echo "🔧 Admin panel: http://localhost/admin"
+    echo "🌐 Website: http://localhost:5555"
+    echo "🔧 Admin panel: http://localhost:5555/admin"
     echo ""
     echo "📋 Create admin user:"
     echo "docker exec -it celaloglu-fixed php artisan filament:user"

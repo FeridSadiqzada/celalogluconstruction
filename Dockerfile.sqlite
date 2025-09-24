@@ -51,9 +51,9 @@ RUN echo 'memory_limit = 256M' > /usr/local/etc/php/conf.d/memory.ini \
     && echo 'opcache.enable = 1' > /usr/local/etc/php/conf.d/opcache.ini \
     && echo 'opcache.memory_consumption = 128' >> /usr/local/etc/php/conf.d/opcache.ini
 
-# Detailed nginx config for Laravel
+# Detailed nginx config for Laravel (Port 5555)
 RUN echo 'server { \
-    listen 80; \
+    listen 5555; \
     server_name _; \
     root /var/www/html/public; \
     index index.php index.html; \
@@ -90,7 +90,7 @@ COPY docker/startup.sh /usr/local/bin/startup.sh
 RUN chmod +x /usr/local/bin/startup.sh
 
 # Expose port
-EXPOSE 80
+EXPOSE 5555
 
 # Start with startup script
 CMD ["/usr/local/bin/startup.sh"]

@@ -10,7 +10,7 @@ cp .env.sqlite .env
 # One command deployment
 docker run -d \
   --name celaloglu-app \
-  -p 80:80 \
+  -p 5555:5555 \
   -v $(pwd)/database:/var/www/html/database \
   -v $(pwd)/storage:/var/www/html/storage \
   -e DB_CONNECTION=sqlite \
@@ -28,5 +28,5 @@ docker exec celaloglu-app php artisan key:generate --force
 docker exec celaloglu-app php artisan migrate --force
 docker exec celaloglu-app php artisan storage:link
 
-echo "✅ Done! Website: http://localhost"
+echo "✅ Done! Website: http://localhost:5555"
 echo "🔧 Create admin: docker exec -it celaloglu-app php artisan filament:user"
