@@ -48,27 +48,27 @@
 
                     <!-- Desktop Menu -->
                     <div class="hidden md:flex items-center space-x-8">
-                        <a href="{{ route('home') }}" class="nav-link text-white hover:text-cyan-300 font-medium transition-colors duration-200 relative group">
+                        <a href="{{ route('home') }}" class="nav-link text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200 relative group">
                             Ana Səhifə
                             <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                         </a>
-                        <a href="/xidmetler" class="nav-link text-white hover:text-cyan-300 font-medium transition-colors duration-200 relative group">
+                        <a href="/xidmetler" class="nav-link text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200 relative group">
                             Xidmətlər
                             <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                         </a>
-                        <a href="/layiheler" class="nav-link text-white hover:text-cyan-300 font-medium transition-colors duration-200 relative group">
+                        <a href="/layiheler" class="nav-link text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200 relative group">
                             Layihələr
                             <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                         </a>
-                        <a href="/terefdaslar" class="nav-link text-white hover:text-cyan-300 font-medium transition-colors duration-200 relative group">
+                        <a href="/terefdaslar" class="nav-link text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200 relative group">
                             Tərəfdaşlar
                             <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                         </a>
-                        <a href="/haqqimizda" class="nav-link text-white hover:text-cyan-300 font-medium transition-colors duration-200 relative group">
+                        <a href="/haqqimizda" class="nav-link text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200 relative group">
                             Haqqımızda
                             <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                         </a>
-                        <a href="/lisenziyalar" class="nav-link text-white hover:text-cyan-300 font-medium transition-colors duration-200 relative group">
+                        <a href="/lisenziyalar" class="nav-link text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200 relative group">
                             Lisenziyalar
                             <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                         </a>
@@ -79,7 +79,7 @@
 
                     <!-- Mobile menu button -->
                     <div class="md:hidden flex items-center">
-                        <button id="mobile-menu-btn" @click="toggleMenu()" class="text-white hover:text-cyan-300 focus:outline-none">
+                        <button id="mobile-menu-btn" @click="toggleMenu()" class="text-white hover:text-[#1E9BF0] focus:outline-none">
                             <svg x-show="!isOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                             </svg>
@@ -93,12 +93,12 @@
                 <!-- Mobile Menu -->
                 <div id="mobile-menu" x-show="isOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2" class="md:hidden bg-black/20 backdrop-blur-md border-t border-white/20">
                     <div class="px-4 py-6 space-y-4">
-                        <a href="{{ route('home') }}" class="mobile-nav-link block text-white hover:text-cyan-300 font-medium transition-colors duration-200" @click="closeMenu()">Ana Səhifə</a>
-                        <a href="/xidmetler" class="mobile-nav-link block text-white hover:text-cyan-300 font-medium transition-colors duration-200" @click="closeMenu()">Xidmətlər</a>
-                        <a href="/layiheler" class="mobile-nav-link block text-white hover:text-cyan-300 font-medium transition-colors duration-200" @click="closeMenu()">Layihələr</a>
-                        <a href="/terefdaslar" class="mobile-nav-link block text-white hover:text-cyan-300 font-medium transition-colors duration-200" @click="closeMenu()">Tərəfdaşlar</a>
-                        <a href="/haqqimizda" class="mobile-nav-link block text-white hover:text-cyan-300 font-medium transition-colors duration-200" @click="closeMenu()">Haqqımızda</a>
-                        <a href="/lisenziyalar" class="mobile-nav-link block text-white hover:text-cyan-300 font-medium transition-colors duration-200" @click="closeMenu()">Lisenziyalar</a>
+                        <a href="{{ route('home') }}" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">Ana Səhifə</a>
+                        <a href="/xidmetler" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">Xidmətlər</a>
+                        <a href="/layiheler" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">Layihələr</a>
+                        <a href="/terefdaslar" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">Tərəfdaşlar</a>
+                        <a href="/haqqimizda" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">Haqqımızda</a>
+                        <a href="/lisenziyalar" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">Lisenziyalar</a>
                         <a href="/elaqe" class="block bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] text-white font-medium py-3 px-6 rounded-full text-center transition-all duration-200" @click="closeMenu()">Əlaqə</a>
                     </div>
                 </div>
@@ -311,8 +311,8 @@
                     // In blue section - white text
                     navLinks.forEach(link => {
                         link.style.color = 'white';
-                        link.classList.remove('text-gray-700', 'hover:text-[#1E9BF0]');
-                        link.classList.add('text-white', 'hover:text-cyan-300');
+                        link.classList.remove('text-gray-700', 'hover:text-cyan-300');
+                        link.classList.add('text-white', 'hover:text-[#1E9BF0]');
                     });
                     
                     navUnderlines.forEach(underline => {
@@ -322,8 +322,8 @@
                     
                     if (mobileMenuBtn) {
                         mobileMenuBtn.style.color = 'white';
-                        mobileMenuBtn.classList.remove('text-gray-700', 'hover:text-[#1E9BF0]');
-                        mobileMenuBtn.classList.add('text-white', 'hover:text-cyan-300');
+                        mobileMenuBtn.classList.remove('text-gray-700', 'hover:text-cyan-300');
+                        mobileMenuBtn.classList.add('text-white', 'hover:text-[#1E9BF0]');
                     }
                     
                     // Mobile menu styling for hero section
@@ -334,15 +334,15 @@
                     
                     mobileNavLinks.forEach(link => {
                         link.style.color = 'white';
-                        link.classList.remove('text-gray-700', 'hover:text-[#1E9BF0]');
-                        link.classList.add('text-white', 'hover:text-cyan-300');
+                        link.classList.remove('text-gray-700', 'hover:text-cyan-300');
+                        link.classList.add('text-white', 'hover:text-[#1E9BF0]');
                     });
                 } else {
                     // After blue section - white text on blue navbar
                     navLinks.forEach(link => {
                         link.style.color = 'white';
-                        link.classList.remove('text-gray-700', 'hover:text-[#1E9BF0]');
-                        link.classList.add('text-white', 'hover:text-cyan-300');
+                        link.classList.remove('text-gray-700', 'hover:text-cyan-300');
+                        link.classList.add('text-white', 'hover:text-[#1E9BF0]');
                     });
                     
                     navUnderlines.forEach(underline => {
@@ -352,8 +352,8 @@
                     
                     if (mobileMenuBtn) {
                         mobileMenuBtn.style.color = 'white';
-                        mobileMenuBtn.classList.remove('text-gray-700', 'hover:text-[#1E9BF0]');
-                        mobileMenuBtn.classList.add('text-white', 'hover:text-cyan-300');
+                        mobileMenuBtn.classList.remove('text-gray-700', 'hover:text-cyan-300');
+                        mobileMenuBtn.classList.add('text-white', 'hover:text-[#1E9BF0]');
                     }
                     
                     // Mobile menu styling
@@ -372,8 +372,8 @@
                 // Other pages: always white text on blue navbar
                 navLinks.forEach(link => {
                     link.style.color = 'white';
-                    link.classList.remove('text-gray-700', 'hover:text-[#1E9BF0]');
-                    link.classList.add('text-white', 'hover:text-cyan-300');
+                    link.classList.remove('text-gray-700', 'hover:text-cyan-300');
+                    link.classList.add('text-white', 'hover:text-[#1E9BF0]');
                 });
                 
                 navUnderlines.forEach(underline => {
@@ -383,8 +383,8 @@
                 
                 if (mobileMenuBtn) {
                     mobileMenuBtn.style.color = 'white';
-                    mobileMenuBtn.classList.remove('text-gray-700', 'hover:text-[#1E9BF0]');
-                    mobileMenuBtn.classList.add('text-white', 'hover:text-cyan-300');
+                    mobileMenuBtn.classList.remove('text-gray-700', 'hover:text-cyan-300');
+                    mobileMenuBtn.classList.add('text-white', 'hover:text-[#1E9BF0]');
                 }
                 
                 // Mobile menu styling for other pages

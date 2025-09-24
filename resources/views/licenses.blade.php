@@ -16,10 +16,10 @@
         </div>
     </div>
 
-    <!-- Licenses Grid -->
+    <!-- License Display -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="licensesGrid">
-            <!-- License items will be dynamically loaded here -->
+        <div class="flex justify-center" id="licensesGrid">
+            <!-- Single license item will be dynamically loaded here -->
         </div>
     </div>
 
@@ -29,12 +29,6 @@
             <div class="flex justify-between items-center p-4 border-b">
                 <h3 id="modalTitle" class="text-lg font-semibold text-gray-900"></h3>
                 <div class="flex space-x-2">
-                    <button id="downloadBtn" class="bg-[#1E9BF0] hover:bg-[#0F7BC7] text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
-                        <span>Yüklə</span>
-                    </button>
                     <button id="closeModal" class="text-gray-400 hover:text-gray-600 p-2">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -42,8 +36,10 @@
                     </button>
                 </div>
             </div>
-            <div class="p-4 h-[calc(90vh-80px)] overflow-auto">
-                <iframe id="pdfViewer" class="w-full h-full border-0" src=""></iframe>
+            <div class="p-4 h-[calc(90vh-80px)] overflow-auto" id="pdfContainer">
+                <div class="flex justify-center">
+                    <canvas id="pdfCanvas" class="max-w-full h-auto border shadow-lg"></canvas>
+                </div>
             </div>
         </div>
     </div>
@@ -102,11 +98,35 @@
     background: #f8fafc;
     transform: scale(1.05);
 }
+
+/* Hide PDF viewer toolbar and download buttons */
+#pdfViewer {
+    pointer-events: none;
+}
+
+/* Re-enable scrolling for PDF content */
+#pdfViewer::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide any download buttons in PDF viewer */
+iframe[src*=".pdf"] {
+    -webkit-print-color-adjust: exact;
+}
+
+/* Additional CSS to hide PDF.js toolbar */
+.pdfViewer .toolbar {
+    display: none !important;
+}
+
+.pdfViewer .secondaryToolbar {
+    display: none !important;
+}
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Sample license data - replace with actual data
+    // Single license data
     const licenses = [
         {
             id: 1,
@@ -114,49 +134,12 @@ document.addEventListener('DOMContentLoaded', function() {
             description: 'Ümumi tikinti işləri üçün rəsmi lisenziya',
             pdfUrl: '/pdfs/licenses/Lisenziya.pdf',
             thumbnailUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMjAgMTYwSDEwMFYxODBIMTIwVjE2MFoiIGZpbGw9IiMxRTlCRjAiLz4KPHBhdGggZD0iTTE4MCAyMDBIMTAwVjIyMEgxODBWMjAwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNMTYwIDI0MEgxMDBWMjYwSDE2MFYyNDBaIiBmaWxsPSIjOUNBM0FGIi8+CjxwYXRoIGQ9Ik0xNDAgMjgwSDEwMFYzMDBIMTQwVjI4MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHRleHQgeD0iMTUwIiB5PSIzNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZCNzI4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TGlzZW56aXlhPC90ZXh0Pgo8L3N2Zz4K'
-        },
-        {
-            id: 2,
-            title: 'İSO 9001 Sertifikatı',
-            description: 'Keyfiyyət idarəetmə sistemi sertifikatı',
-            pdfUrl: '/pdfs/licenses/Lisenziya.pdf',
-            thumbnailUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMjAgMTYwSDEwMFYxODBIMTIwVjE2MFoiIGZpbGw9IiMxRTlCRjAiLz4KPHBhdGggZD0iTTE4MCAyMDBIMTAwVjIyMEgxODBWMjAwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNMTYwIDI0MEgxMDBWMjYwSDE2MFYyNDBaIiBmaWxsPSIjOUNBM0FGIi8+CjxwYXRoIGQ9Ik0xNDAgMjgwSDEwMFYzMDBIMTQwVjI4MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHRleHQgeD0iMTUwIiB5PSIzNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZCNzI4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TGlzZW56aXlhPC90ZXh0Pgo8L3N2Zz4K'
-        },
-        {
-            id: 3,
-            title: 'İSO 14001 Sertifikatı',
-            description: 'Ətraf mühit idarəetmə sistemi sertifikatı',
-            pdfUrl: '/pdfs/licenses/Lisenziya.pdf',
-            thumbnailUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMjAgMTYwSDEwMFYxODBIMTIwVjE2MFoiIGZpbGw9IiMxRTlCRjAiLz4KPHBhdGggZD0iTTE4MCAyMDBIMTAwVjIyMEgxODBWMjAwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNMTYwIDI0MEgxMDBWMjYwSDE2MFYyNDBaIiBmaWxsPSIjOUNBM0FGIi8+CjxwYXRoIGQ9Ik0xNDAgMjgwSDEwMFYzMDBIMTQwVjI4MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHRleHQgeD0iMTUwIiB5PSIzNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZCNzI4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TGlzZW56aXlhPC90ZXh0Pgo8L3N2Zz4K'
-        },
-        {
-            id: 4,
-            title: 'OHSAS 18001 Sertifikatı',
-            description: 'Əmək təhlükəsizliyi və sağlamlıq sertifikatı',
-            pdfUrl: '/pdfs/licenses/Lisenziya.pdf',
-            thumbnailUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMjAgMTYwSDEwMFYxODBIMTIwVjE2MFoiIGZpbGw9IiMxRTlCRjAiLz4KPHBhdGggZD0iTTE4MCAyMDBIMTAwVjIyMEgxODBWMjAwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNMTYwIDI0MEgxMDBWMjYwSDE2MFYyNDBaIiBmaWxsPSIjOUNBM0FGIi8+CjxwYXRoIGQ9Ik0xNDAgMjgwSDEwMFYzMDBIMTQwVjI4MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHRleHQgeD0iMTUwIiB5PSIzNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZCNzI4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TGlzZW56aXlhPC90ZXh0Pgo8L3N2Zz4K'
-        },
-        {
-            id: 5,
-            title: 'Vergi Şəhadətnaməsi',
-            description: 'Vergi orqanları tərəfindən verilmiş şəhadətnamə',
-            pdfUrl: '/pdfs/licenses/Lisenziya.pdf',
-            thumbnailUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMjAgMTYwSDEwMFYxODBIMTIwVjE2MFoiIGZpbGw9IiMxRTlCRjAiLz4KPHBhdGggZD0iTTE4MCAyMDBIMTAwVjIyMEgxODBWMjAwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNMTYwIDI0MEgxMDBWMjYwSDE2MFYyNDBaIiBmaWxsPSIjOUNBM0FGIi8+CjxwYXRoIGQ9Ik0xNDAgMjgwSDEwMFYzMDBIMTQwVjI4MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHRleHQgeD0iMTUwIiB5PSIzNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZCNzI4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TGlzZW56aXlhPC90ZXh0Pgo8L3N2Zz4K'
-        },
-        {
-            id: 6,
-            title: 'Dövlət Qeydiyyatı',
-            description: 'Şirkətin dövlət qeydiyyat sənədi',
-            pdfUrl: '/pdfs/licenses/Lisenziya.pdf',
-            thumbnailUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMjAgMTYwSDEwMFYxODBIMTIwVjE2MFoiIGZpbGw9IiMxRTlCRjAiLz4KPHBhdGggZD0iTTE4MCAyMDBIMTAwVjIyMEgxODBWMjAwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNMTYwIDI0MEgxMDBWMjYwSDE2MFYyNDBaIiBmaWxsPSIjOUNBM0FGIi8+CjxwYXRoIGQ9Ik0xNDAgMjgwSDEwMFYzMDBIMTQwVjI4MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHRleHQgeD0iMTUwIiB5PSIzNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZCNzI4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TGlzZW56aXlhPC90ZXh0Pgo8L3N2Zz4K'
         }
     ];
 
     const licensesGrid = document.getElementById('licensesGrid');
     const pdfModal = document.getElementById('pdfModal');
-    const pdfViewer = document.getElementById('pdfViewer');
     const modalTitle = document.getElementById('modalTitle');
-    const downloadBtn = document.getElementById('downloadBtn');
     const closeModal = document.getElementById('closeModal');
 
     // Render licenses
@@ -181,12 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </svg>
                                 Böyüt
                             </button>
-                            <a href="${license.pdfUrl}" class="license-btn download-btn" download>
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                </svg>
-                                Yüklə
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -223,22 +200,55 @@ document.addEventListener('DOMContentLoaded', function() {
     // Open PDF modal
     function openPdfModal(license) {
         modalTitle.textContent = license.title;
-        pdfViewer.src = license.pdfUrl;
-        downloadBtn.onclick = () => {
-            const link = document.createElement('a');
-            link.href = license.pdfUrl;
-            link.download = license.title + '.pdf';
-            link.click();
-        };
         pdfModal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
+        renderPdfInModal(license.pdfUrl);
+    }
+
+    // Render PDF in modal
+    async function renderPdfInModal(pdfUrl) {
+        try {
+            const loadingTask = pdfjsLib.getDocument(pdfUrl);
+            const pdf = await loadingTask.promise;
+            const page = await pdf.getPage(1);
+            
+            const canvas = document.getElementById('pdfCanvas');
+            const context = canvas.getContext('2d');
+            
+            // Set scale for better quality
+            const viewport = page.getViewport({ scale: 1.5 });
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            
+            const renderContext = {
+                canvasContext: context,
+                viewport: viewport
+            };
+            
+            await page.render(renderContext).promise;
+        } catch (error) {
+            console.error('PDF render error:', error);
+            const canvas = document.getElementById('pdfCanvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 600;
+            canvas.height = 400;
+            context.fillStyle = '#f3f4f6';
+            context.fillRect(0, 0, 600, 400);
+            context.fillStyle = '#6b7280';
+            context.font = '16px Arial';
+            context.textAlign = 'center';
+            context.fillText('PDF yüklənə bilmədi', 300, 200);
+        }
     }
 
     // Close modal
     function closePdfModal() {
         pdfModal.classList.add('hidden');
-        pdfViewer.src = '';
         document.body.style.overflow = 'auto';
+        // Clear canvas
+        const canvas = document.getElementById('pdfCanvas');
+        const context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     // Event listeners
