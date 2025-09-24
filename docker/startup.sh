@@ -1,24 +1,24 @@
 #!/bin/bash
 
-# Startup script for Laravel application
+# Simple startup script for SQLite-only Laravel
 
 set -e
 
 echo "🚀 Starting Laravel application..."
 
-# Wait for database to be ready
-echo "⏳ Waiting for database..."
-sleep 10
-
-echo "✅ Database is ready"
+# Ensure .env exists
+if [ ! -f .env ]; then
+    echo "📋 Creating .env file..."
+    cp .env.sqlite .env || cp .env.example .env
+fi
 
 # Generate app key if not exists
-if [ -z "$APP_KEY" ]; then
+if [ -z "$APP_KEY" ] || ! grep -q "APP_KEY=" .env; then
     echo "🔑 Generating application key..."
     php artisan key:generate --force
 fi
 
-# Run migrations
+# Run migrations (SQLite ready immediately)
 echo "🗄️ Running migrations..."
 php artisan migrate --force
 
@@ -27,12 +27,6 @@ if [ ! -L public/storage ]; then
     echo "🔗 Creating storage link..."
     php artisan storage:link
 fi
-
-# Cache configurations
-echo "💾 Caching configurations..."
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
 
 echo "✅ Laravel application is ready!"
 

@@ -24,6 +24,9 @@ WORKDIR /var/www/html
 # Copy application
 COPY . .
 
+# Create .env file from SQLite template
+RUN cp .env.sqlite .env || cp .env.example .env
+
 # Install dependencies
 RUN composer install --no-dev --optimize-autoloader
 
@@ -68,8 +71,12 @@ autorestart=true' > /etc/supervisor/conf.d/supervisord.conf
 RUN chown -R www-data:www-data storage bootstrap/cache database \
     && chmod -R 775 storage bootstrap/cache database
 
+# Copy startup script
+COPY docker/startup.sh /usr/local/bin/startup.sh
+RUN chmod +x /usr/local/bin/startup.sh
+
 # Expose port
 EXPOSE 80
 
-# Start supervisor
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+# Start with startup script
+CMD ["/usr/local/bin/startup.sh"]
