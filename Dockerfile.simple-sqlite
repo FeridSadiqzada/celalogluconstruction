@@ -6,10 +6,25 @@ RUN apk add --no-cache \
     bash \
     nginx \
     supervisor \
-    sqlite
+    sqlite \
+    curl \
+    netstat-nat
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo_sqlite
+
+# Configure PHP-FPM to listen on 127.0.0.1:9000
+RUN echo 'listen = 127.0.0.1:9000' > /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'listen.owner = www-data' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'listen.group = www-data' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'listen.mode = 0660' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'user = www-data' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'group = www-data' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'pm = dynamic' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'pm.max_children = 5' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'pm.start_servers = 2' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'pm.min_spare_servers = 1' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'pm.max_spare_servers = 3' >> /usr/local/etc/php-fpm.d/www.conf
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -30,17 +45,37 @@ RUN cp .env.sqlite .env \
     && chown -R www-data:www-data storage bootstrap/cache database \
     && chmod -R 775 storage bootstrap/cache database
 
-# Simple nginx config
+# Detailed nginx config for Laravel
 RUN echo 'server { \
     listen 80; \
+    server_name _; \
     root /var/www/html/public; \
-    index index.php; \
-    location / { try_files $uri $uri/ /index.php?$query_string; } \
+    index index.php index.html; \
+    \
+    # Laravel routes \
+    location / { \
+        try_files $uri $uri/ /index.php?$query_string; \
+    } \
+    \
+    # PHP-FPM configuration \
     location ~ \.php$ { \
+        include fastcgi_params; \
         fastcgi_pass 127.0.0.1:9000; \
         fastcgi_index index.php; \
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; \
-        include fastcgi_params; \
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name; \
+        fastcgi_param PATH_INFO $fastcgi_path_info; \
+        fastcgi_read_timeout 300; \
+    } \
+    \
+    # Deny access to hidden files \
+    location ~ /\. { \
+        deny all; \
+    } \
+    \
+    # Static files \
+    location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ { \
+        expires 1y; \
+        add_header Cache-Control "public, immutable"; \
     } \
 }' > /etc/nginx/http.d/default.conf
 

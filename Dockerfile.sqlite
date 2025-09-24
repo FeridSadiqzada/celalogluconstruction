@@ -15,6 +15,16 @@ RUN apk add --no-cache \
 # Install PHP extensions (SQLite only)
 RUN docker-php-ext-install pdo_sqlite zip gd opcache
 
+# Configure PHP-FPM
+RUN echo 'listen = 127.0.0.1:9000' > /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'user = www-data' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'group = www-data' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'pm = dynamic' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'pm.max_children = 5' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'pm.start_servers = 2' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'pm.min_spare_servers = 1' >> /usr/local/etc/php-fpm.d/www.conf \
+    && echo 'pm.max_spare_servers = 3' >> /usr/local/etc/php-fpm.d/www.conf
+
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
@@ -41,17 +51,28 @@ RUN echo 'memory_limit = 256M' > /usr/local/etc/php/conf.d/memory.ini \
     && echo 'opcache.enable = 1' > /usr/local/etc/php/conf.d/opcache.ini \
     && echo 'opcache.memory_consumption = 128' >> /usr/local/etc/php/conf.d/opcache.ini
 
-# Basic nginx config
+# Detailed nginx config for Laravel
 RUN echo 'server { \
     listen 80; \
+    server_name _; \
     root /var/www/html/public; \
-    index index.php; \
-    location / { try_files $uri $uri/ /index.php?$query_string; } \
+    index index.php index.html; \
+    \
+    location / { \
+        try_files $uri $uri/ /index.php?$query_string; \
+    } \
+    \
     location ~ \.php$ { \
+        include fastcgi_params; \
         fastcgi_pass 127.0.0.1:9000; \
         fastcgi_index index.php; \
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; \
-        include fastcgi_params; \
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name; \
+        fastcgi_param PATH_INFO $fastcgi_path_info; \
+        fastcgi_read_timeout 300; \
+    } \
+    \
+    location ~ /\. { \
+        deny all; \
     } \
 }' > /etc/nginx/http.d/default.conf
 
