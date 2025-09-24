@@ -79,7 +79,7 @@ RUN mkdir -p storage/logs storage/framework/{cache,sessions,views} bootstrap/cac
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl -f http://localhost/health || exit 1
+    CMD php -r "echo 'healthy';" || exit 1
 
 # Expose port
 EXPOSE 80

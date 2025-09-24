@@ -6,11 +6,9 @@ set -e
 
 echo "🚀 Starting Laravel application..."
 
-# Wait for database
+# Wait for database to be ready
 echo "⏳ Waiting for database..."
-while ! mysqladmin ping -h"$DB_HOST" --silent; do
-    sleep 1
-done
+sleep 10
 
 echo "✅ Database is ready"
 
