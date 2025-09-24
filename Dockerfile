@@ -1,43 +1,105 @@
-FROM php:8.3-fpm
+# Multi-stage build for production
+FROM node:20-alpine AS node-builder
 
-# Set working directory
-WORKDIR /var/www
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY vite.config.js ./
+COPY tailwind.config.js ./
+COPY postcss.config.js ./
+
+# Install node dependencies
+RUN npm ci --only=production
+
+# Copy source files
+COPY resources/ ./resources/
+COPY public/ ./public/
+
+# Build assets
+RUN npm run build
+
+# PHP Production Image
+FROM php:8.3-fpm-alpine AS php-base
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apk add --no-cache \
     git \
     curl \
     libpng-dev \
-    libonig-dev \
+    oniguruma-dev \
     libxml2-dev \
     zip \
     unzip \
-    nodejs \
-    npm
-
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+    freetype-dev \
+    libjpeg-turbo-dev \
+    libzip-dev \
+    icu-dev \
+    mysql-client \
+    nginx \
+    supervisor
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) \
+        pdo_mysql \
+        mbstring \
+        exif \
+        pcntl \
+        bcmath \
+        gd \
+        zip \
+        intl \
+        opcache
 
-# Get latest Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Install Redis extension
+RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
+    && pecl install redis \
+    && docker-php-ext-enable redis \
+    && apk del .build-deps
 
-# Copy existing application directory contents
-COPY . /var/www
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Copy existing application directory permissions
-COPY --chown=www-data:www-data . /var/www
+# Configure PHP
+COPY docker/php/php.ini /usr/local/etc/php/conf.d/custom.ini
+COPY docker/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
-# Install dependencies
-RUN composer install --no-dev --optimize-autoloader
-RUN npm install && npm run build
+# Configure Nginx
+COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY docker/nginx/default.conf /etc/nginx/http.d/default.conf
 
-# Set permissions
-RUN chmod -R 755 /var/www/storage
-RUN chmod -R 755 /var/www/bootstrap/cache
+# Configure Supervisor
+COPY docker/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expose port 9000 and start php-fpm server
-EXPOSE 9000
-CMD ["php-fpm"]
+# Set working directory
+WORKDIR /var/www/html
+
+# Copy application files
+COPY --chown=www-data:www-data . .
+
+# Copy built assets from node builder
+COPY --from=node-builder --chown=www-data:www-data /app/public/build ./public/build
+
+# Install PHP dependencies
+RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+
+# Create required directories and set permissions
+RUN mkdir -p storage/logs storage/framework/{cache,sessions,views} bootstrap/cache \
+    && chown -R www-data:www-data storage bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
+
+# Create Laravel caches
+RUN php artisan config:cache \
+    && php artisan route:cache \
+    && php artisan view:cache
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost/health || exit 1
+
+# Expose port
+EXPOSE 80
+
+# Start supervisor
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

@@ -5,34 +5,36 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      target: php-base
     container_name: celaloglu-app
     restart: unless-stopped
-    working_dir: /var/www
+    ports:
+      - "80:80"
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - DB_HOST=db
+      - DB_DATABASE=celaloglu_insaat
+      - DB_USERNAME=celaloglu_user
+      - DB_PASSWORD=celaloglu_password
+      - REDIS_HOST=redis
+      - CACHE_DRIVER=redis
+      - SESSION_DRIVER=redis
+      - QUEUE_CONNECTION=redis
     volumes:
-      - ./:/var/www
-      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - storage_data:/var/www/html/storage
+      - ./docker/ssl:/etc/ssl/certs:ro
     networks:
       - celaloglu-network
     depends_on:
       - db
       - redis
-
-  nginx:
-    image: nginx:alpine
-    container_name: celaloglu-nginx
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./:/var/www
-      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./docker/nginx/sites/:/etc/nginx/sites-available
-      - ./docker/nginx/ssl/:/etc/ssl/certs
-    networks:
-      - celaloglu-network
-    depends_on:
-      - app
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
   db:
     image: mysql:8.0
@@ -40,27 +42,64 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: celaloglu_insaat
-      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_secure_password_123}
       MYSQL_USER: celaloglu_user
-      MYSQL_PASSWORD: celaloglu_password
+      MYSQL_PASSWORD: ${DB_PASSWORD:-celaloglu_password_123}
     volumes:
       - db_data:/var/lib/mysql
-    ports:
-      - "3306:3306"
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/custom.cnf:ro
     networks:
       - celaloglu-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
   redis:
-    image: redis:alpine
+    image: redis:7-alpine
     container_name: celaloglu-redis
     restart: unless-stopped
-    ports:
-      - "6379:6379"
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis_password_123}
+    volumes:
+      - redis_data:/data
     networks:
       - celaloglu-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Backup service
+  backup:
+    image: mysql:8.0
+    container_name: celaloglu-backup
+    restart: "no"
+    volumes:
+      - db_data:/var/lib/mysql:ro
+      - ./backups:/backups
+    networks:
+      - celaloglu-network
+    depends_on:
+      - db
+    command: >
+      sh -c "
+        while true; do
+          mysqldump -h db -u celaloglu_user -p${DB_PASSWORD:-celaloglu_password_123} celaloglu_insaat > /backups/backup_$$(date +%Y%m%d_%H%M%S).sql
+          find /backups -name '*.sql' -mtime +7 -delete
+          sleep 86400
+        done
+      "
 
 volumes:
   db_data:
+    driver: local
+  redis_data:
+    driver: local
+  storage_data:
+    driver: local
 
 networks:
   celaloglu-network:
