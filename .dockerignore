@@ -26,10 +26,9 @@ build
 public/build
 public/hot
 
-# Storage
-storage/app/*
-!storage/app/.gitignore
-!storage/app/public
+# Storage (keep structure but ignore content)
+storage/app/public/*
+!storage/app/public/.gitignore
 storage/framework/cache/*
 !storage/framework/cache/.gitignore
 storage/framework/sessions/*
@@ -38,6 +37,9 @@ storage/framework/views/*
 !storage/framework/views/.gitignore
 storage/logs/*
 !storage/logs/.gitignore
+
+# Keep SQLite database
+!database/database.sqlite
 
 # Cache
 bootstrap/cache/*
