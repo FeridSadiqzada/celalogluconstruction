@@ -28,7 +28,25 @@
         <div class="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] overflow-hidden">
             <div class="flex justify-between items-center p-4 border-b">
                 <h3 id="modalTitle" class="text-lg font-semibold text-gray-900"></h3>
-                <div class="flex space-x-2">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <button id="zoomOut" class="px-2 py-1 bg-gray-500 text-white rounded hover:bg-gray-600 text-sm">
+                            -
+                        </button>
+                        <span id="zoomLevel" class="text-sm text-gray-600 min-w-[50px] text-center">100%</span>
+                        <button id="zoomIn" class="px-2 py-1 bg-gray-500 text-white rounded hover:bg-gray-600 text-sm">
+                            +
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button id="prevPage" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed">
+                            ←
+                        </button>
+                        <span id="pageInfo" class="text-sm text-gray-600">1 / 1</span>
+                        <button id="nextPage" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed">
+                            →
+                        </button>
+                    </div>
                     <button id="closeModal" class="text-gray-400 hover:text-gray-600 p-2">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -36,9 +54,9 @@
                     </button>
                 </div>
             </div>
-            <div class="p-4 h-[calc(90vh-80px)] overflow-auto" id="pdfContainer">
-                <div class="flex justify-center">
-                    <canvas id="pdfCanvas" class="max-w-full h-auto border shadow-lg"></canvas>
+            <div class="p-4 h-[calc(90vh-120px)] overflow-auto" id="pdfContainer">
+                <div class="flex flex-col items-center space-y-4" id="pdfPages">
+                    <!-- PDF pages will be rendered here -->
                 </div>
             </div>
         </div>
@@ -205,50 +223,184 @@ document.addEventListener('DOMContentLoaded', function() {
         renderPdfInModal(license.pdfUrl);
     }
 
+    // Global PDF variables
+    let currentPdf = null;
+    let currentPageNum = 1;
+    let totalPages = 0;
+    let currentZoom = 1.0;
+    const minZoom = 0.5;
+    const maxZoom = 3.0;
+    const zoomStep = 0.25;
+
     // Render PDF in modal
     async function renderPdfInModal(pdfUrl) {
         try {
             const loadingTask = pdfjsLib.getDocument(pdfUrl);
-            const pdf = await loadingTask.promise;
-            const page = await pdf.getPage(1);
+            currentPdf = await loadingTask.promise;
+            totalPages = currentPdf.numPages;
+            currentPageNum = 1;
             
-            const canvas = document.getElementById('pdfCanvas');
-            const context = canvas.getContext('2d');
+            // Update page info
+            updatePageInfo();
             
-            // Set scale for better quality
-            const viewport = page.getViewport({ scale: 1.5 });
-            canvas.width = viewport.width;
-            canvas.height = viewport.height;
+            // Render all pages
+            await renderAllPages();
             
-            const renderContext = {
-                canvasContext: context,
-                viewport: viewport
-            };
-            
-            await page.render(renderContext).promise;
         } catch (error) {
             console.error('PDF render error:', error);
-            const canvas = document.getElementById('pdfCanvas');
-            const context = canvas.getContext('2d');
-            canvas.width = 600;
-            canvas.height = 400;
-            context.fillStyle = '#f3f4f6';
-            context.fillRect(0, 0, 600, 400);
-            context.fillStyle = '#6b7280';
-            context.font = '16px Arial';
-            context.textAlign = 'center';
-            context.fillText('PDF yüklənə bilmədi', 300, 200);
+            showPdfError();
         }
+    }
+
+    // Calculate optimal initial zoom based on container size
+    function calculateOptimalZoom() {
+        const container = document.getElementById('pdfContainer');
+        const containerWidth = container.clientWidth - 32; // Account for padding
+        
+        // Assume A4 page ratio (210/297 ≈ 0.707)
+        const pageAspectRatio = 0.707;
+        const assumedPageWidth = 595; // Standard PDF page width in points
+        
+        // Calculate zoom to fit width with some margin
+        const optimalZoom = Math.min(1.2, (containerWidth * 0.9) / assumedPageWidth);
+        return Math.max(0.5, optimalZoom);
+    }
+
+    // Render all PDF pages
+    async function renderAllPages() {
+        const pdfPagesContainer = document.getElementById('pdfPages');
+        pdfPagesContainer.innerHTML = '';
+        
+        // Set initial zoom if not already set
+        if (currentZoom === 1.0) {
+            currentZoom = calculateOptimalZoom();
+            updateZoomDisplay();
+        }
+        
+        for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+            try {
+                const page = await currentPdf.getPage(pageNum);
+                
+                // Create canvas for this page
+                const canvas = document.createElement('canvas');
+                canvas.className = 'max-w-full h-auto border shadow-lg mb-4 transition-all duration-300';
+                canvas.id = `pdf-page-${pageNum}`;
+                
+                const context = canvas.getContext('2d');
+                
+                // Use current zoom level
+                const viewport = page.getViewport({ scale: currentZoom });
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                
+                await page.render(renderContext).promise;
+                
+                // Add page number label
+                const pageLabel = document.createElement('div');
+                pageLabel.className = 'text-center text-sm text-gray-500 mb-2';
+                pageLabel.textContent = `Səhifə ${pageNum}`;
+                
+                const pageContainer = document.createElement('div');
+                pageContainer.className = 'flex flex-col items-center';
+                pageContainer.appendChild(pageLabel);
+                pageContainer.appendChild(canvas);
+                
+                pdfPagesContainer.appendChild(pageContainer);
+                
+            } catch (error) {
+                console.error(`Error rendering page ${pageNum}:`, error);
+            }
+        }
+    }
+
+    // Update page info display
+    function updatePageInfo() {
+        const pageInfo = document.getElementById('pageInfo');
+        const prevBtn = document.getElementById('prevPage');
+        const nextBtn = document.getElementById('nextPage');
+        
+        pageInfo.textContent = `${currentPageNum} / ${totalPages}`;
+        
+        prevBtn.disabled = currentPageNum <= 1;
+        nextBtn.disabled = currentPageNum >= totalPages;
+    }
+
+    // Update zoom display
+    function updateZoomDisplay() {
+        const zoomLevel = document.getElementById('zoomLevel');
+        const zoomIn = document.getElementById('zoomIn');
+        const zoomOut = document.getElementById('zoomOut');
+        
+        zoomLevel.textContent = Math.round(currentZoom * 100) + '%';
+        
+        zoomIn.disabled = currentZoom >= maxZoom;
+        zoomOut.disabled = currentZoom <= minZoom;
+    }
+
+    // Zoom in function
+    function zoomIn() {
+        if (currentZoom < maxZoom) {
+            currentZoom = Math.min(maxZoom, currentZoom + zoomStep);
+            updateZoomDisplay();
+            renderAllPages();
+        }
+    }
+
+    // Zoom out function
+    function zoomOut() {
+        if (currentZoom > minZoom) {
+            currentZoom = Math.max(minZoom, currentZoom - zoomStep);
+            updateZoomDisplay();
+            renderAllPages();
+        }
+    }
+
+    // Navigate to specific page
+    function goToPage(pageNum) {
+        if (pageNum >= 1 && pageNum <= totalPages) {
+            currentPageNum = pageNum;
+            updatePageInfo();
+            
+            // Scroll to the specific page
+            const targetPage = document.getElementById(`pdf-page-${pageNum}`);
+            if (targetPage) {
+                targetPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }
+
+    // Show PDF error
+    function showPdfError() {
+        const pdfPagesContainer = document.getElementById('pdfPages');
+        pdfPagesContainer.innerHTML = `
+            <div class="flex flex-col items-center justify-center p-8 text-gray-500">
+                <svg class="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <p class="text-lg">PDF yüklənə bilmədi</p>
+                <p class="text-sm">Zəhmət olmasa yenidən cəhd edin</p>
+            </div>
+        `;
     }
 
     // Close modal
     function closePdfModal() {
         pdfModal.classList.add('hidden');
         document.body.style.overflow = 'auto';
-        // Clear canvas
-        const canvas = document.getElementById('pdfCanvas');
-        const context = canvas.getContext('2d');
-        context.clearRect(0, 0, canvas.width, canvas.height);
+        // Clear PDF pages
+        const pdfPagesContainer = document.getElementById('pdfPages');
+        pdfPagesContainer.innerHTML = '';
+        // Reset PDF variables
+        currentPdf = null;
+        currentPageNum = 1;
+        totalPages = 0;
+        currentZoom = 1.0;
+        updateZoomDisplay();
     }
 
     // Event listeners
@@ -259,11 +411,94 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ESC key to close modal
+    // Page navigation event listeners
+    document.getElementById('prevPage').addEventListener('click', function() {
+        goToPage(currentPageNum - 1);
+    });
+
+    document.getElementById('nextPage').addEventListener('click', function() {
+        goToPage(currentPageNum + 1);
+    });
+
+    // Zoom event listeners
+    document.getElementById('zoomIn').addEventListener('click', zoomIn);
+    document.getElementById('zoomOut').addEventListener('click', zoomOut);
+
+    // ESC key to close modal, arrow keys for navigation, +/- for zoom
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && !pdfModal.classList.contains('hidden')) {
-            closePdfModal();
+        if (!pdfModal.classList.contains('hidden')) {
+            switch(e.key) {
+                case 'Escape':
+                    closePdfModal();
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    goToPage(currentPageNum - 1);
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    goToPage(currentPageNum + 1);
+                    break;
+                case '+':
+                case '=':
+                    e.preventDefault();
+                    zoomIn();
+                    break;
+                case '-':
+                    e.preventDefault();
+                    zoomOut();
+                    break;
+            }
         }
+    });
+
+    // Mouse wheel zoom support
+    document.getElementById('pdfContainer').addEventListener('wheel', function(e) {
+        if (e.ctrlKey) {
+            e.preventDefault();
+            if (e.deltaY < 0) {
+                zoomIn();
+            } else {
+                zoomOut();
+            }
+        }
+    });
+
+    // Scroll-based page tracking
+    let scrollTimeout;
+    document.getElementById('pdfContainer').addEventListener('scroll', function() {
+        if (!currentPdf || totalPages <= 1) return;
+        
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            // Find which page is most visible
+            const container = this;
+            const containerTop = container.scrollTop;
+            const containerHeight = container.clientHeight;
+            const containerCenter = containerTop + containerHeight / 2;
+            
+            let closestPage = 1;
+            let closestDistance = Infinity;
+            
+            for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+                const pageElement = document.getElementById(`pdf-page-${pageNum}`);
+                if (pageElement) {
+                    const pageTop = pageElement.offsetTop - container.offsetTop;
+                    const pageCenter = pageTop + pageElement.offsetHeight / 2;
+                    const distance = Math.abs(containerCenter - pageCenter);
+                    
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestPage = pageNum;
+                    }
+                }
+            }
+            
+            if (closestPage !== currentPageNum) {
+                currentPageNum = closestPage;
+                updatePageInfo();
+            }
+        }, 100);
     });
 
     // Initialize

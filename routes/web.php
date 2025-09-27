@@ -1,12 +1,6 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\PartnerController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 // Home
@@ -14,35 +8,32 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-// Services - Coming Soon
+// Services
 Route::get('/xidmetler', function () {
-    return view('coming-soon', ['pageTitle' => 'Xidmətlər']);
+    return view('services');
 })->name('services.index');
 
-// Projects - Coming Soon
+// Projects
 Route::get('/layiheler', function () {
-    return view('coming-soon', ['pageTitle' => 'Layihələr']);
+    return view('projects');
 })->name('projects.index');
 
-// Partners - Coming Soon
+// Partners
 Route::get('/terefdaslar', function () {
-    return view('coming-soon', ['pageTitle' => 'Tərəfdaşlar']);
+    return view('partners');
 })->name('partners.index');
 
-// About - Coming Soon
+// About
 Route::get('/haqqimizda', function () {
-    return view('coming-soon', ['pageTitle' => 'Haqqımızda']);
+    return view('about');
 })->name('about');
 
-// Contact - Coming Soon
+// Contact
 Route::get('/elaqe', function () {
-    return view('coming-soon', ['pageTitle' => 'Əlaqə']);
+    return view('contact');
 })->name('contact');
 
-// Licenses
-Route::get('/lisenziyalar', function () {
-    return view('licenses');
-})->name('licenses');
+
 
 // Blog - Coming Soon
 Route::get('/blog', function () {
@@ -53,13 +44,12 @@ Route::get('/{page}', function ($page) {
     return view('coming-soon', ['pageTitle' => ucfirst($page)]);
 })->name('pages.show');
 
-// Sitemap and RSS
+// Sitemap
 Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
-Route::get('/feed', [BlogController::class, 'feed'])->name('feed');
 
-// Language Switcher (if needed)
+// Language Switcher
 Route::get('/lang/{locale}', function ($locale) {
-    if (in_array($locale, config('app.locales', ['az']))) {
+    if (array_key_exists($locale, config('app.available_locales', ['az' => 'Azərbaycan']))) {
         session(['locale' => $locale]);
     }
     return redirect()->back();

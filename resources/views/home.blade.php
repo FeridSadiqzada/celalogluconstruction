@@ -64,7 +64,7 @@
             <!-- Main Content -->
             <div class="animate-fade-in-up">
                 <p class="text-xl md:text-2xl mb-16 max-w-3xl mx-auto text-white/90 leading-relaxed font-light">
-                    Keyfiyyətli tikinti xidmətləri ilə arzularınızı gerçəkləşdiririk
+                    {{ __('home.hero_subtitle') }}
                 </p>
             </div>
 
@@ -74,13 +74,13 @@
                     <svg class="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                     </svg>
-                    Xidmətlərimizə Bax
+                    {{ __('home.view_services') }}
                 </a>
                 <a href="/elaqe" class="group bg-transparent border-2 border-white hover:bg-white hover:text-[#1E9BF0] font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
                     <svg class="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                     </svg>
-                    Pulsuz Məsləhət
+                    {{ __('home.free_consultation') }}
                 </a>
             </div>
 
@@ -90,19 +90,19 @@
                     <div class="text-5xl md:text-6xl font-bold text-white mb-3">
                         <span class="counter" data-target="15">0</span>+
                     </div>
-                    <div class="text-white/80 text-lg font-medium">İl Təcrübə</div>
+                    <div class="text-white/80 text-lg font-medium">{{ __('home.years_experience') }}</div>
                 </div>
                 <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl py-8 px-6 border border-white/20">
                     <div class="text-5xl md:text-6xl font-bold text-white mb-3">
-                        <span class="counter" data-target="500">0</span>+
+                        <span class="counter" data-target="350">0</span>+
                     </div>
-                    <div class="text-white/80 text-lg font-medium">Tamamlanmış Layihə</div>
+                    <div class="text-white/80 text-lg font-medium">{{ __('home.completed_projects') }}</div>
                 </div>
                 <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl py-8 px-6 border border-white/20">
                     <div class="text-5xl md:text-6xl font-bold text-white mb-3">
                         <span class="counter" data-target="100">0</span>%
                     </div>
-                    <div class="text-white/80 text-lg font-medium">Müştəri Məmnuniyyəti</div>
+                    <div class="text-white/80 text-lg font-medium">{{ __('home.customer_satisfaction') }}</div>
                 </div>
             </div>
         </div>
@@ -122,10 +122,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Bizim <span class="bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] bg-clip-text text-transparent">Xidmətlərimiz</span>
+                    {{ __('home.our_services') }}
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Peşəkar komandamız ilə keyfiyyətli tikinti xidmətləri təqdim edirik
+                    {{ __('home.services_subtitle') }}
                 </p>
             </div>
 
@@ -137,12 +137,12 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Ev Tikintisi</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('home.house_construction') }}</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        Müasir texnologiyalar və keyfiyyətli materiallarla fərdi evlərin tikintisi. Layihədən açar-təslim həllərinə qədər.
+                        {{ __('home.house_construction_desc') }}
                     </p>
                     <a href="/xidmetler" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
-                        Ətraflı
+                        {{ __('home.more_details') }}
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
@@ -156,9 +156,9 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Villa Tikintisi</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('home.villa_construction') }}</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        Lüks villa layihələri və tikintisi. Ekskluziv dizayn həlləri və premium materiallarla.
+                        {{ __('home.villa_construction_desc') }}
                     </p>
                     <a href="/xidmetler" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
                         Ətraflı
@@ -176,9 +176,9 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Təmir İşləri</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('home.renovation_works') }}</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        Kapital təmir, yenidənqurma və bərpa işləri. Köhnə binaların müasir standartlara uyğunlaşdırılması.
+                        {{ __('home.renovation_works_desc') }}
                     </p>
                     <a href="/xidmetler" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
                         Ətraflı
@@ -196,10 +196,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Son <span class="bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] bg-clip-text text-transparent">Layihələrimiz</span>
+                    {{ __('home.recent_projects') }}
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Tamamladığımız uğurlu layihələrdən nümunələr
+                    {{ __('home.projects_subtitle') }}
                 </p>
             </div>
 
@@ -266,10 +266,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Bizim <span class="bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] bg-clip-text text-transparent">Tərəfdaşlarımız</span>
+                    {{ __('home.our_partners') }}
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Keyfiyyətli materiallar və xidmətlər üçün etibarlı tərəfdaşlarımız
+                    {{ __('home.partners_subtitle') }}
                 </p>
             </div>
 
@@ -312,17 +312,16 @@
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        <span class="bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] bg-clip-text text-transparent">Haqqımızda</span> Qısa Məlumat
+                        <span class="bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] bg-clip-text text-transparent">{{ __('home.about_us') }}</span> {{ __('home.about_brief') }}
                     </h2>
                     <p class="text-xl text-gray-600 mb-6 leading-relaxed">
-                        15 ildən artıq təcrübəmizlə Azərbaycanda keyfiyyətli tikinti xidmətləri göstəririk. 
-                        Müasir texnologiyalar və peşəkar komandamızla müştərilərimizin arzularını gerçəkləşdiririk.
+                        {{ __('home.about_desc1') }}
                     </p>
                     <p class="text-lg text-gray-600 mb-8">
-                        Hər layihəyə fərdi yanaşma, vaxtında təhvil və uzunmüddətli zəmanət bizim əsas prinsiplərimizdir.
+                        {{ __('home.about_desc2') }}
                     </p>
                     <a href="/haqqimizda" class="bg-[#1E9BF0] hover:bg-[#0F7BC7] text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
-                        Ətraflı Oxu
+                        {{ __('home.read_more') }}
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
@@ -331,27 +330,27 @@
                 <div id="about-stats" class="grid grid-cols-2 gap-6">
                     <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
                         <div class="text-3xl font-bold text-[#1E9BF0] mb-2">
-                            <span class="counter" data-target="500">0</span>+
+                            <span class="counter" data-target="350">0</span>+
                         </div>
-                        <div class="text-gray-600">Tamamlanmış Layihə</div>
+                        <div class="text-gray-600">{{ __('home.completed_projects') }}</div>
                     </div>
                     <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
                         <div class="text-3xl font-bold text-[#1E9BF0] mb-2">
                             <span class="counter" data-target="15">0</span>+
                         </div>
-                        <div class="text-gray-600">İl Təcrübə</div>
+                        <div class="text-gray-600">{{ __('home.years_experience') }}</div>
                     </div>
                     <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
                         <div class="text-3xl font-bold text-[#1E9BF0] mb-2">
                             <span class="counter" data-target="50">0</span>+
                         </div>
-                        <div class="text-gray-600">Peşəkar İşçi</div>
+                        <div class="text-gray-600">{{ __('home.professional_workers') }}</div>
                     </div>
                     <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
                         <div class="text-3xl font-bold text-[#1E9BF0] mb-2">
                             <span class="counter" data-target="100">0</span>%
                         </div>
-                        <div class="text-gray-600">Müştəri Məmnuniyyəti</div>
+                        <div class="text-gray-600">{{ __('home.customer_satisfaction') }}</div>
                     </div>
                 </div>
             </div>

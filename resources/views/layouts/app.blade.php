@@ -49,32 +49,31 @@
                     <!-- Desktop Menu -->
                     <div class="hidden md:flex items-center space-x-8">
                         <a href="{{ route('home') }}" class="nav-link text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200 relative group">
-                            Ana Səhifə
+                            {{ __('navigation.home') }}
                             <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                         </a>
                         <a href="/xidmetler" class="nav-link text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200 relative group">
-                            Xidmətlər
+                            {{ __('navigation.services') }}
                             <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                         </a>
                         <a href="/layiheler" class="nav-link text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200 relative group">
-                            Layihələr
+                            {{ __('navigation.projects') }}
                             <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                         </a>
                         <a href="/terefdaslar" class="nav-link text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200 relative group">
-                            Tərəfdaşlar
+                            {{ __('navigation.partners') }}
                             <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                         </a>
                         <a href="/haqqimizda" class="nav-link text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200 relative group">
-                            Haqqımızda
-                            <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
-                        </a>
-                        <a href="/lisenziyalar" class="nav-link text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200 relative group">
-                            Lisenziyalar
+                            {{ __('navigation.about') }}
                             <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                         </a>
                         <a href="/elaqe" class="bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] hover:from-[#0F7BC7] hover:to-[#6B7280] text-white font-medium py-3 px-6 rounded-full transition-all duration-200 transform hover:scale-105 shadow-lg">
-                            Əlaqə
+                            {{ __('navigation.contact') }}
                         </a>
+                        
+                        <!-- Language Switcher -->
+                        <x-language-switcher />
                     </div>
 
                     <!-- Mobile menu button -->
@@ -93,13 +92,17 @@
                 <!-- Mobile Menu -->
                 <div id="mobile-menu" x-show="isOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2" class="md:hidden bg-black/20 backdrop-blur-md border-t border-white/20">
                     <div class="px-4 py-6 space-y-4">
-                        <a href="{{ route('home') }}" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">Ana Səhifə</a>
-                        <a href="/xidmetler" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">Xidmətlər</a>
-                        <a href="/layiheler" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">Layihələr</a>
-                        <a href="/terefdaslar" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">Tərəfdaşlar</a>
-                        <a href="/haqqimizda" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">Haqqımızda</a>
-                        <a href="/lisenziyalar" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">Lisenziyalar</a>
-                        <a href="/elaqe" class="block bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] text-white font-medium py-3 px-6 rounded-full text-center transition-all duration-200" @click="closeMenu()">Əlaqə</a>
+                        <a href="{{ route('home') }}" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">{{ __('navigation.home') }}</a>
+                        <a href="/xidmetler" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">{{ __('navigation.services') }}</a>
+                        <a href="/layiheler" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">{{ __('navigation.projects') }}</a>
+                        <a href="/terefdaslar" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">{{ __('navigation.partners') }}</a>
+                        <a href="/haqqimizda" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">{{ __('navigation.about') }}</a>
+                        <a href="/elaqe" class="block bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] text-white font-medium py-3 px-6 rounded-full text-center transition-all duration-200" @click="closeMenu()">{{ __('navigation.contact') }}</a>
+                        
+                        <!-- Mobile Language Switcher -->
+                        <div class="pt-4 border-t border-white/20">
+                            <x-language-switcher />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -121,7 +124,7 @@
                             <img src="{{ asset('images/logo.png') }}" alt="Cəlaloğlu İnşaat Logo" class="h-12 w-auto object-contain mr-3">
                         </div>
                         <p class="text-gray-300 mb-6 leading-relaxed">
-                            15+ il təcrübə ilə Azərbaycanda keyfiyyətli tikinti xidmətləri göstəririk. Müştəri məmnuniyyəti bizim əsas prioritetimizdir.
+                            {{ __('common.company_description') }}
                         </p>
                         <!-- Social Media -->
                         <div class="flex space-x-4">
@@ -150,34 +153,33 @@
 
                     <!-- Quick Links -->
                     <div>
-                        <h3 class="text-lg font-semibold mb-6 text-[#1E9BF0]">Sürətli Keçidlər</h3>
+                        <h3 class="text-lg font-semibold mb-6 text-[#1E9BF0]">{{ __('common.quick_links') }}</h3>
                         <ul class="space-y-3">
-                            <li><a href="{{ route('home') }}" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Ana Səhifə</a></li>
-                            <li><a href="/haqqimizda" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Haqqımızda</a></li>
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Xidmətlərimiz</a></li>
-                            <li><a href="/layiheler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Layihələr</a></li>
-                            <li><a href="/terefdaslar" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Tərəfdaşlar</a></li>
-                            <li><a href="/lisenziyalar" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Lisenziyalar</a></li>
-                            <li><a href="/blog" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Blog</a></li>
+                            <li><a href="{{ route('home') }}" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.home') }}</a></li>
+                            <li><a href="/haqqimizda" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.about') }}</a></li>
+                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.services') }}</a></li>
+                            <li><a href="/layiheler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.projects') }}</a></li>
+                            <li><a href="/terefdaslar" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.partners') }}</a></li>
+                            <li><a href="/blog" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.blog') }}</a></li>
                         </ul>
                     </div>
 
                     <!-- Services -->
                     <div>
-                        <h3 class="text-lg font-semibold mb-6 text-[#1E9BF0]">Xidmətlərimiz</h3>
+                        <h3 class="text-lg font-semibold mb-6 text-[#1E9BF0]">{{ __('common.our_services') }}</h3>
                         <ul class="space-y-3">
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Ev Tikintisi</a></li>
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Villa Tikintisi</a></li>
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Təmir İşləri</a></li>
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Dizayn Xidmətləri</a></li>
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Layihə Hazırlanması</a></li>
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">Məsləhət Xidməti</a></li>
+                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('common.house_construction') }}</a></li>
+                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('common.villa_construction') }}</a></li>
+                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('common.renovation_works') }}</a></li>
+                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('common.design_services') }}</a></li>
+                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('common.project_preparation') }}</a></li>
+                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('common.consultation_service') }}</a></li>
                         </ul>
                     </div>
 
                     <!-- Contact Info -->
                     <div>
-                        <h3 class="text-lg font-semibold mb-6 text-[#1E9BF0]">Əlaqə Məlumatları</h3>
+                        <h3 class="text-lg font-semibold mb-6 text-[#1E9BF0]">{{ __('common.contact_info') }}</h3>
                         <div class="space-y-4">
                             <div class="flex items-start space-x-3">
                                 <svg class="w-5 h-5 text-[#1E9BF0] mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -185,8 +187,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 </svg>
                                 <div>
-                                    <p class="text-gray-300">Bakı şəhəri, Nəsimi rayonu</p>
-                                    <p class="text-gray-300">Azadlıq prospekti 123</p>
+                                    <p class="text-gray-300">{{ __('common.address_line1') }}</p>
+                                    <p class="text-gray-300">{{ __('common.address_line2') }}</p>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-3">
@@ -210,8 +212,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                 </svg>
                                 <div>
-                                    <p class="text-gray-300">B.e - Cümə: 09:00 - 18:00</p>
-                                    <p class="text-gray-300">Şənbə: 09:00 - 14:00</p>
+                                    <p class="text-gray-300">{{ __('common.working_hours') }}</p>
+                                    <p class="text-gray-300">{{ __('common.saturday_hours') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -225,13 +227,13 @@
                     <div class="md:flex md:items-center md:justify-between">
                         <div class="text-center md:text-left mb-4 md:mb-0">
                             <p class="text-gray-400 text-sm">
-                                © {{ date('Y') }} Cəlaloğlu İnşaat MMC. Bütün hüquqlar qorunur.
+                                © {{ date('Y') }} {{ __('common.company_name') }}. {{ __('common.all_rights_reserved') }}
                             </p>
                         </div>
                         <div class="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
-                            <a href="/privacy-policy" class="text-gray-400 hover:text-[#1E9BF0] transition-colors duration-300">Məxfilik Siyasəti</a>
-                            <a href="/terms-of-service" class="text-gray-400 hover:text-[#1E9BF0] transition-colors duration-300">İstifadə Şərtləri</a>
-                            <a href="/sitemap" class="text-gray-400 hover:text-[#1E9BF0] transition-colors duration-300">Sayt Xəritəsi</a>
+                            <a href="/privacy-policy" class="text-gray-400 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.privacy_policy') }}</a>
+                            <a href="/terms-of-service" class="text-gray-400 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.terms_of_service') }}</a>
+                            <a href="/sitemap" class="text-gray-400 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.sitemap') }}</a>
                         </div>
                     </div>
                 </div>
