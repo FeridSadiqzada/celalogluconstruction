@@ -50,10 +50,16 @@ return [
     'instagram_posts' => 'Наши посты в Instagram',
     'instagram_subtitle' => 'Последние посты о наших текущих проектах и работах',
     'instagram_handle' => '@calaloglu_inshaat',
+    'visit_instagram' => 'Посетите нашу страницу в Instagram',
     
     // Contact Section
     'get_quote' => 'Получить предложение',
     'contact_us_today' => 'Свяжитесь с нами сегодня',
     'contact_subtitle' => 'Свяжитесь с нами, чтобы получить бесплатную консультацию и предложение для вашего проекта',
     'contact_button' => 'Связаться с нами',
+    
+    // CTA Section
+    'cta_title' => 'Готовы воплотить свои мечты в реальность?',
+    'cta_subtitle' => 'Свяжитесь с нами и давайте обсудим ваш проект',
+    'cta_button' => 'Связаться с нами сейчас',
 ];

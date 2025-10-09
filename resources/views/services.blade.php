@@ -20,36 +20,36 @@
     <!-- Services Grid -->
     <section class="py-20 lg:py-32 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Ev Tikintisi -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Tikinti -->
                 <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
                     <div class="w-16 h-16 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('services.house_construction') }}</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('services.construction') }}</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        {{ __('services.house_construction_desc') }}
+                        {{ __('services.construction_desc') }}
                     </p>
                     <ul class="text-gray-600 space-y-2 mb-6">
                         <li class="flex items-center gap-2">
                             <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
-                            {{ __('services.project_preparation') }}
+                            {{ __('services.residential_construction') }}
                         </li>
                         <li class="flex items-center gap-2">
                             <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
-                            {{ __('services.construction_works') }}
+                            {{ __('services.commercial_construction') }}
                         </li>
                         <li class="flex items-center gap-2">
                             <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
-                            Açar-təslim həlli
+                            {{ __('services.industrial_construction') }}
                         </li>
                     </ul>
                     <a href="/elaqe" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
@@ -60,46 +60,7 @@
                     </a>
                 </div>
 
-                <!-- Villa Tikintisi -->
-                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-                    <div class="w-16 h-16 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('services.villa_construction') }}</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        {{ __('services.villa_construction_desc') }}
-                    </p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.luxury_design') }}
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.premium_materials') }}
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.smart_home_systems') }}
-                        </li>
-                    </ul>
-                    <a href="/elaqe" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
-                        {{ __('services.get_quote') }}
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Təmir İşləri -->
+                <!-- Təmir -->
                 <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
                     <div class="w-16 h-16 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,36 +100,35 @@
                     </a>
                 </div>
 
-                <!-- Dizayn Xidmətləri -->
+                <!-- MEP İşləri -->
                 <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
                     <div class="w-16 h-16 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3H5a2 2 0 00-2 2v12a4 4 0 004 4h2a2 2 0 002-2V5a2 2 0 00-2-2z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('services.design_services') }}</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('services.mep_works') }}</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        {{ __('services.design_services_desc') }}
+                        {{ __('services.mep_works_desc') }}
                     </p>
                     <ul class="text-gray-600 space-y-2 mb-6">
                         <li class="flex items-center gap-2">
                             <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
-                            {{ __('services.interior_design') }}
+                            {{ __('services.electrical_systems') }}
                         </li>
                         <li class="flex items-center gap-2">
                             <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
-                            {{ __('services.3d_visualization') }}
+                            {{ __('services.plumbing_systems') }}
                         </li>
                         <li class="flex items-center gap-2">
                             <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
-                            {{ __('services.project_preparation') }}
+                            {{ __('services.hvac_systems') }}
                         </li>
                     </ul>
                     <a href="/elaqe" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
@@ -179,55 +139,16 @@
                     </a>
                 </div>
 
-                <!-- Məsləhət Xidməti -->
-                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-                    <div class="w-16 h-16 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('services.consultation_services') }}</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        {{ __('services.consultation_services_desc') }}
-                    </p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.technical_consultation') }}
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.cost_estimation') }}
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.material_selection') }}
-                        </li>
-                    </ul>
-                    <a href="/elaqe" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
-                        {{ __('services.get_quote') }}
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Layihə Hazırlanması -->
+                <!-- Layihələndirmə -->
                 <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
                     <div class="w-16 h-16 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('services.project_preparation_service') }}</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('services.project_design') }}</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        {{ __('services.project_preparation_desc') }}
+                        {{ __('services.project_design_desc') }}
                     </p>
                     <ul class="text-gray-600 space-y-2 mb-6">
                         <li class="flex items-center gap-2">

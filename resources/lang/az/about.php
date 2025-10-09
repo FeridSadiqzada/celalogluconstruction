@@ -7,7 +7,7 @@ return [
 
     // Company Story
     'our_story' => 'Bizim Hekayəmiz',
-    'story_desc1' => 'Cəlaloğlu İnşaat 2009-cu ildə kiçik bir ailə şirkəti olaraq fəaliyyətə başladı. İlk günlərdən etibarən keyfiyyət və müştəri məmnuniyyətini prioritet olaraq qəbul etdik.',
+    'story_desc1' => 'Cəlaloğlu İnşaat 2009-cu ildə fəaliyyətə başladı. İlk günlərdən etibarən keyfiyyət və müştəri məmnuniyyətini prioritet olaraq qəbul etdik.',
     'story_desc2' => 'Bu gün 15+ il təcrübəmizlə Azərbaycanın aparıcı tikinti şirkətlərindən biri olaraq 350+ layihəni uğurla tamamlamışıq. Hər layihəyə fərdi yanaşma, vaxtında təhvil və uzunmüddətli zəmanət bizim əsas prinsiplərimizdir.',
     'story_desc3' => 'Müasir texnologiyalar və peşəkar komandamızla müştərilərimizin arzularını gerçəkləşdiririk. Ev tikintisindən villa komplekslərinin qurulmasına qədər geniş xidmət spektri təklif edirik.',
 
@@ -40,21 +40,7 @@ return [
     'teamwork' => 'Komanda İşi',
     'teamwork_desc' => 'Peşəkar komandamızın birgə səyləri ilə hər layihəni uğurla həyata keçiririk və müştərilərimizin məmnuniyyətini təmin edirik.',
 
-    // Team
-    'our_team' => 'Bizim Komandamız',
-    'team_subtitle' => 'Peşəkar və təcrübəli mütəxəssislərdən ibarət komandamız',
-    'lead_engineer' => 'Rəhbər Mühəndis',
-    'project_management' => 'Layihə İdarəetməsi',
-    'lead_engineer_desc' => '15+ il təcrübə ilə bütün layihələrin uğurla idarə edilməsini təmin edir',
-    'chief_architect' => 'Baş Memar',
-    'architectural_design' => 'Memarlıq Dizaynı',
-    'chief_architect_desc' => 'Yaradıcı dizayn həlləri və funksional memarlıq layihələri hazırlayır',
-    'structural_engineer' => 'Konstruktor Mühəndis',
-    'structural_calculations' => 'Konstruksiya Hesablamaları',
-    'structural_engineer_desc' => 'Binaların möhkəmlik və dayanıqlılığını təmin edən konstruksiya həlləri',
-    'quality_controller' => 'Keyfiyyət Nəzarətçisi',
-    'quality_assurance' => 'Keyfiyyət Təminatı',
-    'quality_controller_desc' => 'Bütün tikinti işlərinin keyfiyyət standartlarına uyğunluğunu yoxlayır',
+
 
     // License
     'official_license' => 'Rəsmi Lisenziya',
@@ -62,4 +48,9 @@ return [
     'construction_license' => 'İnşaat Lisenziyası',
     'license_desc' => 'Azərbaycan Respublikası Dövlət Şəhərsalma və Memarlıq Komitəsi tərəfindən verilmiş rəsmi tikinti lisenziyası',
     'zoom_and_read' => 'Böyüt və Oxu',
+
+    // CTA Section
+    'cta_title' => 'Bizimlə İşləməyə Hazırsınız?',
+    'cta_subtitle' => '15+ il təcrübəmizlə layihənizi uğurla həyata keçirək. Pulsuz məsləhət üçün bizimlə əlaqə saxlayın.',
+    'cta_button' => 'İndi Əlaqə Saxla',
 ];

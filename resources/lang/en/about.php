@@ -7,7 +7,7 @@ return [
 
     // Company Story
     'our_story' => 'Our Story',
-    'story_desc1' => 'Cəlaloğlu Construction started its operations in 2009 as a small family business. From the very beginning, we have prioritized quality and customer satisfaction.',
+    'story_desc1' => 'Cəlaloğlu Construction started its operations in 2009. From the very beginning, we have prioritized quality and customer satisfaction.',
     'story_desc2' => 'Today, with our 15+ years of experience, we have successfully completed 350+ projects as one of Azerbaijan\'s leading construction companies. Individual approach to each project, timely delivery and long-term warranty are our main principles.',
     'story_desc3' => 'We realize our customers\' dreams with modern technologies and our professional team. We offer a wide range of services from house construction to villa complex development.',
 
@@ -40,21 +40,7 @@ return [
     'teamwork' => 'Teamwork',
     'teamwork_desc' => 'With the joint efforts of our professional team, we successfully implement every project and ensure customer satisfaction.',
 
-    // Team
-    'our_team' => 'Our Team',
-    'team_subtitle' => 'Our team of professional and experienced specialists',
-    'lead_engineer' => 'Lead Engineer',
-    'project_management' => 'Project Management',
-    'lead_engineer_desc' => 'Ensures successful management of all projects with 15+ years of experience',
-    'chief_architect' => 'Chief Architect',
-    'architectural_design' => 'Architectural Design',
-    'chief_architect_desc' => 'Prepares creative design solutions and functional architectural projects',
-    'structural_engineer' => 'Structural Engineer',
-    'structural_calculations' => 'Structural Calculations',
-    'structural_engineer_desc' => 'Structural solutions that ensure the strength and durability of buildings',
-    'quality_controller' => 'Quality Controller',
-    'quality_assurance' => 'Quality Assurance',
-    'quality_controller_desc' => 'Checks compliance of all construction works with quality standards',
+
 
     // License
     'official_license' => 'Official License',
@@ -62,4 +48,9 @@ return [
     'construction_license' => 'Construction License',
     'license_desc' => 'Official construction license issued by the State Committee for Urban Planning and Architecture of the Republic of Azerbaijan',
     'zoom_and_read' => 'Zoom and Read',
+
+    // CTA Section
+    'cta_title' => 'Ready to Work with Us?',
+    'cta_subtitle' => 'Let\'s successfully implement your project with our 15+ years of experience. Contact us for free consultation.',
+    'cta_button' => 'Contact Now',
 ];

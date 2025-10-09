@@ -161,7 +161,7 @@
                         {{ __('home.villa_construction_desc') }}
                     </p>
                     <a href="/xidmetler" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
-                        Ətraflı
+                        {{ __('home.more_details') }}
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
@@ -181,7 +181,7 @@
                         {{ __('home.renovation_works_desc') }}
                     </p>
                     <a href="/xidmetler" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
-                        Ətraflı
+                        {{ __('home.more_details') }}
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
@@ -210,11 +210,11 @@
                         <img src="{{ asset('images/baku.jpg') }}" alt="Müasir Villa - Bakı" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Müasir Villa - Bakı</h3>
-                        <p class="text-gray-600 mb-4">350 m² sahədə müasir villa tikintisi. Premium materiallar və ağıllı ev sistemləri.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('home.modern_villa_baku') }}</h3>
+                        <p class="text-gray-600 mb-4">{{ __('home.modern_villa_desc') }}</p>
                         <div class="flex items-center justify-between">
                             <span class="text-sm text-gray-500">2024</span>
-                            <a href="/layiheler" class="text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold">Ətraflı →</a>
+                            <a href="/layiheler" class="text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold">{{ __('home.more_details') }} →</a>
                         </div>
                     </div>
                 </div>
@@ -225,11 +225,11 @@
                         <img src="{{ asset('images/referans.jpg') }}" alt="Yaşayış Kompleksi - Sumqayıt" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Yaşayış Kompleksi - Sumqayıt</h3>
-                        <p class="text-gray-600 mb-4">24 mənzilli yaşayış kompleksi. Müasir infrastruktur və yaşıl sahələr.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('home.residential_complex') }}</h3>
+                        <p class="text-gray-600 mb-4">{{ __('home.residential_complex_desc') }}</p>
                         <div class="flex items-center justify-between">
                             <span class="text-sm text-gray-500">2023</span>
-                            <a href="/layiheler" class="text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold">Ətraflı →</a>
+                            <a href="/layiheler" class="text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold">{{ __('home.more_details') }} →</a>
                         </div>
                     </div>
                 </div>
@@ -240,11 +240,11 @@
                         <img src="{{ asset('images/ofis.jpg') }}" alt="Ofis Binası - Gəncə" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Ofis Binası - Gəncə</h3>
-                        <p class="text-gray-600 mb-4">5 mərtəbəli müasir ofis binası. Enerji səmərəli həllər və müasir dizayn.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('home.office_building') }}</h3>
+                        <p class="text-gray-600 mb-4">{{ __('home.office_building_desc') }}</p>
                         <div class="flex items-center justify-between">
                             <span class="text-sm text-gray-500">2023</span>
-                            <a href="/layiheler" class="text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold">Ətraflı →</a>
+                            <a href="/layiheler" class="text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold">{{ __('home.more_details') }} →</a>
                         </div>
                     </div>
                 </div>
@@ -252,7 +252,7 @@
 
             <div class="text-center">
                 <a href="/layiheler" class="bg-[#1E9BF0] hover:bg-[#0F7BC7] text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
-                    Bütün Layihələri Gör
+                    {{ __('home.view_all_projects') }}
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
@@ -297,7 +297,7 @@
 
             <div class="text-center">
                 <a href="/terefdaslar" class="text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold inline-flex items-center gap-2">
-                    Bütün Tərəfdaşları Gör
+                    {{ __('home.view_all_partners') }}
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
@@ -362,16 +362,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Instagram <span class="bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] bg-clip-text text-transparent">Paylaşımlarımız</span>
+                    {{ __('home.instagram_posts') }}
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                    Güncel layihələrimiz və işlərimizlə bağlı son paylaşımlar
+                    {{ __('home.instagram_subtitle') }}
                 </p>
                 <a href="https://instagram.com/calaloglu_inshaat" target="_blank" class="inline-flex items-center gap-2 text-pink-600 hover:text-pink-700 font-semibold">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.44z"/>
                     </svg>
-                    @calaloglu_inshaat
+                    {{ __('home.instagram_handle') }}
                 </a>
             </div>
 
@@ -485,9 +485,9 @@
             <div class="text-center">
                 <a href="https://instagram.com/calaloglu_inshaat" target="_blank" class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
                     </svg>
-                    Instagram Səhifəmizi Ziyarət Edin
+                    {{ __('home.visit_instagram') }}
                 </a>
             </div>
         </div>
@@ -497,13 +497,13 @@
     <section class="py-16 lg:py-24 bg-blue-600 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                Arzularınızı Gerçəkləşdirməyə Hazırsınız?
+                {{ __('home.cta_title') }}
             </h2>
             <p class="text-xl mb-8 max-w-2xl mx-auto">
-                Bizimlə əlaqə saxlayın və layihənizi müzakirə edək
+                {{ __('home.cta_subtitle') }}
             </p>
             <a href="/elaqe" class="bg-cyan-500 hover:bg-cyan-600 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center gap-2">
-                İndi Əlaqə Saxlayın
+                {{ __('home.cta_button') }}
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>

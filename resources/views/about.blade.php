@@ -191,77 +191,7 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="py-20 lg:py-32 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    {{ __('about.our_team') }}
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    {{ __('about.team_subtitle') }}
-                </p>
-            </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Team Member 1 -->
-                <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="w-24 h-24 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('about.lead_engineer') }}</h3>
-                    <p class="text-[#1E9BF0] font-medium mb-4">{{ __('about.project_management') }}</p>
-                    <p class="text-gray-600 text-sm">
-                        {{ __('about.lead_engineer_desc') }}
-                    </p>
-                </div>
-
-                <!-- Team Member 2 -->
-                <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="w-24 h-24 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('about.chief_architect') }}</h3>
-                    <p class="text-green-600 font-medium mb-4">{{ __('about.architectural_design') }}</p>
-                    <p class="text-gray-600 text-sm">
-                        {{ __('about.chief_architect_desc') }}
-                    </p>
-                </div>
-
-                <!-- Team Member 3 -->
-                <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="w-24 h-24 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('about.structural_engineer') }}</h3>
-                    <p class="text-purple-600 font-medium mb-4">{{ __('about.structural_calculations') }}</p>
-                    <p class="text-gray-600 text-sm">
-                        {{ __('about.structural_engineer_desc') }}
-                    </p>
-                </div>
-
-                <!-- Team Member 4 -->
-                <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="w-24 h-24 bg-gradient-to-r from-red-400 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('about.quality_controller') }}</h3>
-                    <p class="text-red-600 font-medium mb-4">{{ __('about.quality_assurance') }}</p>
-                    <p class="text-gray-600 text-sm">
-                        {{ __('about.quality_controller_desc') }}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Certifications & Licenses -->
     <section class="py-20 lg:py-32 bg-white">
@@ -577,16 +507,16 @@
     <section class="py-20 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                Bizimlə İşləməyə Hazırsınız?
+                {{ __('about.cta_title') }}
             </h2>
             <p class="text-xl mb-8 max-w-2xl mx-auto">
-                15+ il təcrübəmizlə layihənizi uğurla həyata keçirək. Pulsuz məsləhət üçün bizimlə əlaqə saxlayın.
+                {{ __('about.cta_subtitle') }}
             </p>
             <a href="/elaqe" class="bg-white text-[#1E9BF0] hover:bg-gray-100 font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                 </svg>
-                İndi Əlaqə Saxla
+                {{ __('about.cta_button') }}
             </a>
         </div>
     </section>

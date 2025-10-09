@@ -4,66 +4,40 @@ return [
     'page_title' => 'Наши услуги',
     'page_subtitle' => 'Предоставляем качественные строительные услуги с нашей профессиональной командой',
     
-    // House Construction
-    'house_construction' => 'Строительство домов',
-    'house_construction_desc' => 'Строительство индивидуальных домов с современными технологиями и качественными материалами. Полный пакет услуг от проекта до решений под ключ.',
-    'project_preparation' => 'Подготовка проекта',
-    'construction_works' => 'Строительные работы',
-    'interior_finishing' => 'Внутренняя отделка',
-    'exterior_finishing' => 'Внешняя отделка',
-    'landscaping' => 'Благоустройство',
-    
-    // Villa Construction
-    'villa_construction' => 'Строительство вилл',
-    'villa_construction_desc' => 'Проекты и строительство роскошных вилл. Эксклюзивные дизайнерские решения с премиальными материалами.',
-    'luxury_design' => 'Роскошный дизайн',
-    'premium_materials' => 'Премиальные материалы',
-    'smart_home_systems' => 'Системы умного дома',
-    'swimming_pool' => 'Строительство бассейна',
-    'garden_design' => 'Дизайн сада',
+    // Construction
+    'construction' => 'Строительство',
+    'construction_desc' => 'Строительство жилых и нежилых зданий. Полный пакет услуг с современными технологиями и качественными материалами.',
+    'residential_construction' => 'Жилое строительство',
+    'commercial_construction' => 'Коммерческое строительство',
+    'industrial_construction' => 'Промышленное строительство',
     
     // Renovation Works
-    'renovation_works' => 'Ремонтные работы',
+    'renovation_works' => 'Ремонт',
     'renovation_works_desc' => 'Капитальный ремонт, реконструкция и восстановительные работы. Модернизация старых зданий под современные стандарты.',
     'capital_repair' => 'Капитальный ремонт',
     'reconstruction' => 'Реконструкция',
     'restoration' => 'Восстановительные работы',
-    'modernization' => 'Модернизация',
-    'energy_efficiency' => 'Энергоэффективность',
     
-    // Design Services
-    'design_services' => 'Дизайнерские услуги',
-    'design_services_desc' => 'Профессиональные архитектурные и дизайнерские услуги интерьера. 3D визуализация и подготовка проектов.',
-    'architectural_design' => 'Архитектурный дизайн',
-    'interior_design' => 'Дизайн интерьера',
-    '3d_visualization' => '3D визуализация',
-    'technical_drawings' => 'Технические чертежи',
-    'permit_documentation' => 'Разрешительная документация',
+    // MEP Works
+    'mep_works' => 'Инженерные работы',
+    'mep_works_desc' => 'Установка и ремонт механических, электрических и сантехнических систем. Качественный сервис с профессиональной командой.',
+    'electrical_systems' => 'Электрические системы',
+    'plumbing_systems' => 'Сантехнические системы',
+    'hvac_systems' => 'Системы отопления и вентиляции',
     
-    // Project Management
-    'project_management' => 'Управление проектами',
-    'project_management_desc' => 'Полное управление и надзор от начала до завершения проекта.',
-    'planning_scheduling' => 'Планирование и составление графиков',
-    'quality_control' => 'Контроль качества',
-    'budget_management' => 'Управление бюджетом',
-    'progress_reporting' => 'Отчеты о ходе работ',
-    'final_inspection' => 'Финальная инспекция',
-    
-    // Consultation Services
-    'consultation_services' => 'Консультационные услуги',
-    'consultation_services_desc' => 'Профессиональные консультации и техническая поддержка для строительных проектов.',
-    'technical_consultation' => 'Техническая консультация',
-    'cost_estimation' => 'Оценка стоимости',
-    'material_selection' => 'Выбор материалов',
-    'regulatory_compliance' => 'Соответствие нормативам',
-    'feasibility_study' => 'Исследование осуществимости',
-    
-    // Project Preparation
-    'project_preparation_service' => 'Подготовка проектов',
-    'project_preparation_desc' => 'Подготовка архитектурных и конструктивных проектов. Получение официальных разрешений.',
+    // Project Design
+    'project_design' => 'Проектирование',
+    'project_design_desc' => 'Подготовка архитектурных и конструктивных проектов. Получение официальных разрешений и техническая документация.',
     'architectural_project' => 'Архитектурный проект',
     'construction_project' => 'Конструктивный проект',
     'permit_documents' => 'Разрешительные документы',
+    
+    // Design Services
+    'design_services' => 'Дизайн',
+    'design_services_desc' => 'Профессиональные архитектурные и дизайнерские услуги интерьера. 3D визуализация и эстетические решения.',
+    'architectural_design' => 'Архитектурный дизайн',
+    'interior_design' => 'Дизайн интерьера',
+    '3d_visualization' => '3D визуализация',
     
     // CTA Section
     'cta_title' => 'Готовы воплотить ваш проект в жизнь?',

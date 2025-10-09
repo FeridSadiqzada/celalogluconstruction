@@ -51,6 +51,7 @@ Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
 Route::get('/lang/{locale}', function ($locale) {
     if (array_key_exists($locale, config('app.available_locales', ['az' => 'Azərbaycan']))) {
         session(['locale' => $locale]);
+        app()->setLocale($locale);
     }
     return redirect()->back();
 })->name('locale.switch');

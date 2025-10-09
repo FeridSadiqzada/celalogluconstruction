@@ -50,10 +50,16 @@ return [
     'instagram_posts' => 'Our Instagram Posts',
     'instagram_subtitle' => 'Latest posts about our current projects and work',
     'instagram_handle' => '@calaloglu_inshaat',
+    'visit_instagram' => 'Visit Our Instagram Page',
     
     // Contact Section
     'get_quote' => 'Get Quote',
     'contact_us_today' => 'Contact us today',
     'contact_subtitle' => 'Contact us to get free consultation and quote for your project',
     'contact_button' => 'Contact Us',
+    
+    // CTA Section
+    'cta_title' => 'Ready to Make Your Dreams Come True?',
+    'cta_subtitle' => 'Contact us and let\'s discuss your project',
+    'cta_button' => 'Contact Us Now',
 ];

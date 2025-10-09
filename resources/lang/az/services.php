@@ -4,66 +4,40 @@ return [
     'page_title' => 'Bizim Xidmətlərimiz',
     'page_subtitle' => 'Peşəkar komandamızla keyfiyyətli tikinti xidmətləri təqdim edirik',
     
-    // House Construction
-    'house_construction' => 'Ev Tikintisi',
-    'house_construction_desc' => 'Müasir texnologiyalar və keyfiyyətli materiallarla fərdi evlərin tikintisi. Layihədən açar-təslim həllərinə qədər tam xidmət paketi.',
-    'project_preparation' => 'Layihə hazırlanması',
-    'construction_works' => 'Tikinti işləri',
-    'interior_finishing' => 'Daxili təmir',
-    'exterior_finishing' => 'Xarici təmir',
-    'landscaping' => 'Abadlaşdırma',
-    
-    // Villa Construction
-    'villa_construction' => 'Villa Tikintisi',
-    'villa_construction_desc' => 'Lüks villa layihələri və tikintisi. Ekskluziv dizayn həlləri və premium materiallarla.',
-    'luxury_design' => 'Lüks dizayn',
-    'premium_materials' => 'Premium materiallar',
-    'smart_home_systems' => 'Ağıllı ev sistemləri',
-    'swimming_pool' => 'Hovuz tikintisi',
-    'garden_design' => 'Bağ dizaynı',
+    // Construction
+    'construction' => 'Tikinti',
+    'construction_desc' => 'Yaşayış və qeyri-yaşayış tikintilərinin inşası. Müasir texnologiyalar və keyfiyyətli materiallarla tam xidmət paketi.',
+    'residential_construction' => 'Yaşayış tikintisi',
+    'commercial_construction' => 'Qeyri-yaşayış tikintisi',
+    'industrial_construction' => 'Sənaye tikintisi',
     
     // Renovation Works
-    'renovation_works' => 'Təmir İşləri',
+    'renovation_works' => 'Təmir',
     'renovation_works_desc' => 'Kapital təmir, yenidənqurma və bərpa işləri. Köhnə binaların müasir standartlara uyğunlaşdırılması.',
     'capital_repair' => 'Kapital təmir',
     'reconstruction' => 'Yenidənqurma',
     'restoration' => 'Bərpa işləri',
-    'modernization' => 'Müasirləşdirmə',
-    'energy_efficiency' => 'Enerji səmərəliliyi',
     
-    // Design Services
-    'design_services' => 'Dizayn Xidmətləri',
-    'design_services_desc' => 'Peşəkar memarlıq və daxili dizayn xidmətləri. 3D vizualizasiya və layihə hazırlanması.',
-    'architectural_design' => 'Memarlıq dizaynı',
-    'interior_design' => 'Daxili dizayn',
-    '3d_visualization' => '3D vizualizasiya',
-    'technical_drawings' => 'Texniki çertyojlar',
-    'permit_documentation' => 'İcazə sənədləri',
+    // MEP Works
+    'mep_works' => 'MEP işləri',
+    'mep_works_desc' => 'Mexaniki, elektrik və santexnika sistemlərinin quraşdırılması və təmiri. Peşəkar komanda ilə keyfiyyətli xidmət.',
+    'electrical_systems' => 'Elektrik sistemləri',
+    'plumbing_systems' => 'Santexnika sistemləri',
+    'hvac_systems' => 'İstilik-ventilyasiya sistemləri',
     
-    // Project Management
-    'project_management' => 'Layihə İdarəetməsi',
-    'project_management_desc' => 'Layihənin başlanğıcından bitməsinə qədər tam idarəetmə və nəzarət xidmətləri.',
-    'planning_scheduling' => 'Planlaşdırma və cədvəlləmə',
-    'quality_control' => 'Keyfiyyət nəzarəti',
-    'budget_management' => 'Büdcə idarəetməsi',
-    'progress_reporting' => 'Tərəqqi hesabatları',
-    'final_inspection' => 'Son yoxlama',
-    
-    // Consultation Services
-    'consultation_services' => 'Məsləhət Xidmətləri',
-    'consultation_services_desc' => 'Tikinti layihələri üçün peşəkar məsləhət və texniki dəstək xidmətləri.',
-    'technical_consultation' => 'Texniki məsləhət',
-    'cost_estimation' => 'Xərc hesablaması',
-    'material_selection' => 'Material seçimi',
-    'regulatory_compliance' => 'Qanunvericilik uyğunluğu',
-    'feasibility_study' => 'Həyata keçirmə imkanı tədqiqi',
-    
-    // Project Preparation
-    'project_preparation_service' => 'Layihə Hazırlanması',
-    'project_preparation_desc' => 'Memarlıq və konstruksiya layihələrinin hazırlanması. Rəsmi icazələrin alınması.',
+    // Project Design
+    'project_design' => 'Layihələndirmə',
+    'project_design_desc' => 'Memarlıq və konstruksiya layihələrinin hazırlanması. Rəsmi icazələrin alınması və texniki sənədləşmə.',
     'architectural_project' => 'Memarlıq layihəsi',
     'construction_project' => 'Konstruksiya layihəsi',
     'permit_documents' => 'İcazə sənədləri',
+    
+    // Design Services
+    'design_services' => 'Dizayn',
+    'design_services_desc' => 'Peşəkar memarlıq və daxili dizayn xidmətləri. 3D vizualizasiya və estetik həllər.',
+    'architectural_design' => 'Memarlıq dizaynı',
+    'interior_design' => 'Daxili dizayn',
+    '3d_visualization' => '3D vizualizasiya',
     
     // CTA Section
     'cta_title' => 'Layihənizi Həyata Keçirməyə Hazırsınız?',

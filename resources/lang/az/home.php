@@ -57,8 +57,19 @@ return [
     'contact_subtitle' => 'Layihəniz üçün pulsuz məsləhət və qiymət təklifi almaq üçün bizimlə əlaqə saxlayın',
     'contact_button' => 'Əlaqə Saxla',
     
+    // CTA Section
+    'cta_title' => 'Arzularınızı Gerçəkləşdirməyə Hazırsınız?',
+    'cta_subtitle' => 'Bizimlə əlaqə saxlayın və layihənizi müzakirə edək',
+    'cta_button' => 'İndi Əlaqə Saxlayın',
+    
     // Additional translations
     'about_brief_info' => 'Qısa Məlumat',
     'about_desc_1' => '15 ildən artıq təcrübəmizlə Azərbaycanda keyfiyyətli tikinti xidmətləri göstəririk. Müasir texnologiyalar və peşəkar komandamızla müştərilərimizin arzularını gerçəkləşdiririk.',
     'about_desc_2' => 'Hər layihəyə fərdi yanaşma, vaxtında təhvil və uzunmüddətli zəmanət bizim əsas prinsiplərimizdir.',
+    
+    // Instagram Section
+    'instagram_posts' => 'Instagram Paylaşımlarımız',
+    'instagram_subtitle' => 'Güncel layihələrimiz və işlərimizlə bağlı son paylaşımlar',
+    'instagram_handle' => '@calaloglu_inshaat',
+    'visit_instagram' => 'Instagram Səhifəmizi Ziyarət Edin',
 ];

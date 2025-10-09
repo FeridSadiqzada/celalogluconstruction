@@ -3,9 +3,9 @@
     $availableLocales = config('app.available_locales');
     
     $flags = [
-        'az' => '🇦🇿',
-        'en' => '🇺🇸', 
-        'ru' => '🇷🇺',
+        'az' => '<img src="' . asset('images/Flag_of_Azerbaijan.svg') . '" alt="Azerbaijan" class="w-5 h-5 rounded-sm object-cover">',
+        'en' => '<img src="' . asset('images/Flag_of_the_United_Kingdom.svg') . '" alt="United Kingdom" class="w-5 h-5 rounded-sm object-cover">',
+        'ru' => '<img src="' . asset('images/Flag_of_Russia.svg') . '" alt="Russia" class="w-5 h-5 rounded-sm object-cover">',
     ];
     
     $getCurrentFlag = $flags[$currentLocale] ?? '🌐';
@@ -17,7 +17,7 @@
                 type="button" 
                 onclick="toggleDropdown()">
             <span class="flag-icon">
-                {{ $getCurrentFlag }}
+                {!! $getCurrentFlag !!}
             </span>
             <span>{{ $availableLocales[$currentLocale] }}</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -29,19 +29,12 @@
             <div class="py-1">
                 @foreach($availableLocales as $locale => $name)
                     @php
-                        $url = request()->url();
-                        $query = request()->query();
-                        $query['lang'] = $locale;
-                        $query = array_filter($query, function($value) {
-                            return $value !== null && $value !== '';
-                        });
-                        $localeUrl = $url . (empty($query) ? '' : '?' . http_build_query($query));
                         $localeFlag = $flags[$locale] ?? '🌐';
                     @endphp
-                    <a href="{{ $localeUrl }}" 
+                    <a href="{{ route('locale.switch', $locale) }}" 
                        class="flex items-center space-x-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 {{ $currentLocale == $locale ? 'bg-gray-50 font-medium' : '' }}">
                         <span class="flag-icon">
-                            {{ $localeFlag }}
+                            {!! $localeFlag !!}
                         </span>
                         <span>{{ $name }}</span>
                         @if($currentLocale == $locale)
@@ -80,5 +73,9 @@ document.addEventListener('click', function(event) {
 
 .flag-icon {
     font-size: 1.2em;
+}
+
+.flag-icon img {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 </style>
