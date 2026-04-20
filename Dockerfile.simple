@@ -57,8 +57,9 @@ WORKDIR /var/www/html
 # Copy application files
 COPY --chown=www-data:www-data . .
 
-# Install PHP dependencies only
-RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+# Install PHP dependencies without running Laravel scripts during build.
+# This avoids failing builds when runtime .env values are not yet available.
+RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-scripts
 
 # Create required directories and set permissions
 RUN mkdir -p storage/logs storage/framework/{cache,sessions,views} bootstrap/cache \
