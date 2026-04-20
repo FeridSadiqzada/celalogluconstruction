@@ -68,8 +68,11 @@
                             {{ __('navigation.about') }}
                             <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                         </a>
-                        <a href="/elaqe" class="bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] hover:from-[#0F7BC7] hover:to-[#6B7280] text-white font-medium py-3 px-6 rounded-full transition-all duration-200 transform hover:scale-105 shadow-lg">
-                            {{ __('navigation.contact') }}
+                        <a href="/elaqe" class="group inline-flex items-center gap-2 rounded-full bg-white pl-6 pr-2 py-2 text-[#08333e] shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
+                            <span class="text-xs font-semibold uppercase tracking-wide">{{ __('navigation.contact') }}</span>
+                            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-[#08333e] text-white transition group-hover:translate-x-0.5">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </span>
                         </a>
                         
                         <!-- Language Switcher -->
@@ -97,7 +100,7 @@
                         <a href="/layiheler" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">{{ __('navigation.projects') }}</a>
                         <a href="/terefdaslar" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">{{ __('navigation.partners') }}</a>
                         <a href="/haqqimizda" class="mobile-nav-link block text-white hover:text-[#1E9BF0] font-medium transition-colors duration-200" @click="closeMenu()">{{ __('navigation.about') }}</a>
-                        <a href="/elaqe" class="block bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] text-white font-medium py-3 px-6 rounded-full text-center transition-all duration-200" @click="closeMenu()">{{ __('navigation.contact') }}</a>
+                        <a href="/elaqe" class="block text-center rounded-full bg-white text-[#08333e] font-semibold py-3 px-4 transition-all duration-200" @click="closeMenu()">{{ __('navigation.contact') }}</a>
                         
                         <!-- Mobile Language Switcher -->
                         <div class="pt-4 border-t border-white/20">
@@ -113,125 +116,123 @@
             @yield('content')
         </main>
 
+        <script>document.documentElement.classList.add('footer-anim-enabled');</script>
         <!-- Footer -->
-        <footer class="bg-gray-900 text-white">
-            <!-- Main Footer Content -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Company Info -->
-                    <div class="lg:col-span-1">
-                        <div class="flex items-center mb-6">
-                            <img src="{{ asset('images/logo.png') }}" alt="Cəlaloğlu İnşaat Logo" class="h-12 w-auto object-contain mr-3">
+        <footer class="site-footer relative overflow-hidden bg-[#002b36] text-white">
+            <div class="pointer-events-none absolute -right-24 top-0 h-[420px] w-[420px] rotate-12 opacity-[0.09]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 36px, rgba(255,255,255,0.08) 36px, rgba(255,255,255,0.08) 72px);"></div>
+            <div class="pointer-events-none absolute right-8 top-16 h-48 w-48 rounded-3xl border border-white/[0.07] rotate-45 opacity-40"></div>
+            <div class="pointer-events-none absolute right-24 top-28 h-36 w-36 rounded-2xl border border-white/[0.05] rotate-12 opacity-50"></div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-20 pb-12 lg:pb-14">
+                <div class="grid gap-14 lg:grid-cols-12 lg:gap-12 xl:gap-16">
+                    <div class="lg:col-span-4 space-y-8" data-footer-reveal>
+                        <a href="{{ route('home') }}" class="inline-block max-w-[240px] transition-opacity hover:opacity-90">
+                            <img src="{{ asset('images/logo.png') }}" alt="{{ __('common.company_name') }}" width="220" height="48" class="h-10 w-auto max-h-10 object-contain object-left brightness-0 invert opacity-95">
+                        </a>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://instagram.com/calaloglu_inshaat" target="_blank" rel="noopener noreferrer" class="footer-social-pill">{{ __('common.social_instagram') }}</a>
+                            <a href="#" class="footer-social-pill" rel="noopener noreferrer">{{ __('common.social_facebook') }}</a>
+                            <a href="#" class="footer-social-pill" rel="noopener noreferrer">{{ __('common.social_linkedin') }}</a>
                         </div>
-                        <p class="text-gray-300 mb-6 leading-relaxed">
-                            {{ __('common.company_description') }}
-                        </p>
-                        <!-- Social Media -->
-                        <div class="flex space-x-4">
-                            <a href="https://instagram.com/calaloglu_inshaat" target="_blank" class="w-10 h-10 bg-[#1E9BF0] hover:bg-[#0F7BC7] rounded-full flex items-center justify-center transition-colors duration-300">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                </svg>
-                            </a>
-                            <a href="https://www.tiktok.com/@celaloglu.construction" target="_blank" class="w-10 h-10 bg-[#1E9BF0] hover:bg-[#0F7BC7] rounded-full flex items-center justify-center transition-colors duration-300">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-                                </svg>
-                            </a>
-                        </div>
+                        <a href="https://www.tiktok.com/@celaloglu.construction" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-wider text-white/45 transition hover:text-white/90">
+                            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                            TikTok
+                        </a>
                     </div>
 
-                    <!-- Quick Links -->
-                    <div>
-                        <h3 class="text-lg font-semibold mb-6 text-[#1E9BF0]">{{ __('common.quick_links') }}</h3>
-                        <ul class="space-y-3">
-                            <li><a href="{{ route('home') }}" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.home') }}</a></li>
-                            <li><a href="/haqqimizda" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.about') }}</a></li>
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.services') }}</a></li>
-                            <li><a href="/layiheler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.projects') }}</a></li>
-                            <li><a href="/terefdaslar" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.partners') }}</a></li>
-                            <li><a href="/blog" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.blog') }}</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Services -->
-                    <div>
-                        <h3 class="text-lg font-semibold mb-6 text-[#1E9BF0]">{{ __('common.our_services') }}</h3>
-                        <ul class="space-y-3">
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('common.house_construction') }}</a></li>
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('common.villa_construction') }}</a></li>
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('common.renovation_works') }}</a></li>
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('common.design_services') }}</a></li>
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('common.project_preparation') }}</a></li>
-                            <li><a href="/xidmetler" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('common.consultation_service') }}</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Contact Info -->
-                    <div>
-                        <h3 class="text-lg font-semibold mb-6 text-[#1E9BF0]">{{ __('common.contact_info') }}</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start space-x-3">
-                                <svg class="w-5 h-5 text-[#1E9BF0] mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                                <div>
-                                    <p class="text-gray-300">{{ __('common.address_line1') }}</p>
-                                    <p class="text-gray-300">{{ __('common.address_line2') }}</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-[#1E9BF0] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                                </svg>
-                                <div>
-                                    <a href="tel:+994501234567" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">+994 50 123 45 67</a>
-                                </div>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-[#1E9BF0] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                                <div>
-                                    <a href="mailto:info@celalogluinsaat.az" class="text-gray-300 hover:text-[#1E9BF0] transition-colors duration-300">info@celalogluinsaat.az</a>
-                                </div>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-[#1E9BF0] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                                <div>
-                                    <p class="text-gray-300">{{ __('common.working_hours') }}</p>
-                                    <p class="text-gray-300">{{ __('common.saturday_hours') }}</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="lg:col-span-8 grid grid-cols-2 gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-6">
+                        <nav class="footer-nav-col footer-delay-1 space-y-4" data-footer-reveal aria-label="{{ __('common.footer_col_company') }}">
+                            <p class="text-sm font-bold text-white">{{ __('common.footer_col_company') }}</p>
+                            <ul class="space-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">
+                                <li><a href="/haqqimizda" class="transition hover:text-white">{{ __('common.footer_link_about') }}</a></li>
+                                <li><a href="/haqqimizda" class="transition hover:text-white">{{ __('common.footer_link_team') }}</a></li>
+                                <li><a href="/xidmetler" class="transition hover:text-white">{{ __('common.footer_link_pricing') }}</a></li>
+                            </ul>
+                        </nav>
+                        <nav class="footer-nav-col footer-delay-2 space-y-4" data-footer-reveal aria-label="{{ __('common.footer_col_services') }}">
+                            <p class="text-sm font-bold text-white">{{ __('common.footer_col_services') }}</p>
+                            <ul class="space-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">
+                                <li><a href="/xidmetler" class="transition hover:text-white">{{ __('common.footer_link_welding') }}</a></li>
+                                <li><a href="/xidmetler" class="transition hover:text-white">{{ __('common.footer_link_general_building') }}</a></li>
+                                <li><a href="/xidmetler" class="transition hover:text-white">{{ __('common.footer_link_interior') }}</a></li>
+                            </ul>
+                        </nav>
+                        <nav class="footer-nav-col footer-delay-3 space-y-4" data-footer-reveal aria-label="{{ __('common.footer_col_projects') }}">
+                            <p class="text-sm font-bold text-white">{{ __('common.footer_col_projects') }}</p>
+                            <ul class="space-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">
+                                <li><a href="{{ route('projects.index') }}" class="transition hover:text-white">{{ __('common.footer_link_project_1') }}</a></li>
+                                <li><a href="{{ route('projects.index') }}" class="transition hover:text-white">{{ __('common.footer_link_project_2') }}</a></li>
+                                <li><a href="{{ route('projects.index') }}" class="transition hover:text-white">{{ __('common.footer_link_project_3') }}</a></li>
+                            </ul>
+                        </nav>
+                        <nav class="footer-nav-col footer-delay-4 space-y-4" data-footer-reveal aria-label="{{ __('common.footer_col_news') }}">
+                            <p class="text-sm font-bold text-white">{{ __('common.footer_col_news') }}</p>
+                            <ul class="space-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">
+                                <li><a href="{{ route('blog.index') }}" class="transition hover:text-white">{{ __('common.footer_link_news_1') }}</a></li>
+                                <li><a href="{{ route('blog.index') }}" class="transition hover:text-white">{{ __('common.footer_link_news_2') }}</a></li>
+                                <li><a href="{{ route('blog.index') }}" class="transition hover:text-white">{{ __('common.footer_link_news_3') }}</a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
+<!-- 
+                <div class="mt-14 lg:mt-16 border-t border-white/10 pt-12 lg:pt-14" data-footer-reveal>
+                    <h3 class="text-xl font-bold tracking-tight text-white sm:text-2xl">{{ __('common.footer_newsletter_title') }}</h3>
+                    <form action="{{ route('contact') }}" method="get" class="mt-8 max-w-xl">
+                        <div class="footer-newsletter-field flex flex-wrap items-end gap-x-6 gap-y-4 border-b border-white/35 pb-3 transition-colors duration-300 focus-within:border-teal-300/90">
+                            <label class="sr-only" for="footer-email">{{ __('common.footer_email_placeholder') }}</label>
+                            <input id="footer-email" name="email" type="email" autocomplete="email" required placeholder="{{ __('common.footer_email_placeholder') }}" class="footer-newsletter-input min-w-0 flex-1 bg-transparent py-2 text-base text-white placeholder:text-white/40 focus:outline-none focus:ring-0 sm:min-w-[240px]">
+                            <button type="submit" class="group/footer-submit inline-flex shrink-0 items-center gap-2 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition hover:text-teal-200">
+                                {{ __('common.footer_submit') }}
+                                <svg class="h-4 w-4 transition-transform duration-300 group-hover/footer-submit:translate-x-0.5 group-hover/footer-submit:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7m0 0H7m10 0v10"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div> -->
             </div>
 
-            <!-- Bottom Footer -->
-            <div class="border-t border-gray-800">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                    <div class="md:flex md:items-center md:justify-between">
-                        <div class="text-center md:text-left mb-4 md:mb-0">
-                            <p class="text-gray-400 text-sm">
-                                © {{ date('Y') }} {{ __('common.company_name') }}. {{ __('common.all_rights_reserved') }}
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
-                            <a href="/privacy-policy" class="text-gray-400 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.privacy_policy') }}</a>
-                            <a href="/terms-of-service" class="text-gray-400 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.terms_of_service') }}</a>
-                            <a href="/sitemap" class="text-gray-400 hover:text-[#1E9BF0] transition-colors duration-300">{{ __('navigation.sitemap') }}</a>
+            <div class="relative z-10 border-t border-white/10 bg-black/20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
+                    <div class="flex flex-col items-center gap-6 md:flex-row md:justify-between md:gap-8">
+                        <p class="order-2 text-center text-[10px] font-semibold uppercase tracking-[0.28em] text-white/45 md:order-1 md:text-left">
+                            © {{ date('Y') }} {{ __('common.company_name') }}. {{ __('common.all_rights_reserved') }}
+                        </p>
+                        <div class="order-1 flex flex-wrap justify-center gap-x-8 gap-y-2 text-[10px] font-semibold uppercase tracking-wider text-white/45 md:order-2">
+                            <a href="/privacy-policy" class="transition hover:text-white">{{ __('navigation.privacy_policy') }}</a>
+                            <a href="/terms-of-service" class="transition hover:text-white">{{ __('navigation.terms_of_service') }}</a>
+                            <a href="/sitemap" class="transition hover:text-white">{{ __('navigation.sitemap') }}</a>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
 
+        <script>
+            (function () {
+                var footer = document.querySelector('.site-footer');
+                if (!footer || !('IntersectionObserver' in window)) {
+                    if (footer) footer.classList.add('is-footer-visible');
+                    return;
+                }
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    footer.classList.add('is-footer-visible');
+                    return;
+                }
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (!e.isIntersecting) return;
+                        footer.classList.add('is-footer-visible');
+                        io.disconnect();
+                    });
+                }, { threshold: 0.06, rootMargin: '0px 0px 32px 0px' });
+                io.observe(footer);
+            })();
+        </script>
+
         <!-- Scroll to Top Button -->
-        <button id="scrollToTop" class="fixed bottom-6 right-6 bg-[#1E9BF0] hover:bg-[#0F7BC7] text-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 opacity-0 invisible z-50 flex items-center justify-center" onclick="scrollToTop()">
+        <button id="scrollToTop" class="fixed bottom-6 right-6 bg-[#08333e] hover:bg-[#0a4f5e] text-white w-12 h-12 rounded-full shadow-lg shadow-black/25 ring-1 ring-white/10 hover:shadow-xl transition-all duration-300 transform hover:scale-105 opacity-0 invisible z-50 flex items-center justify-center" onclick="scrollToTop()">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
             </svg>
@@ -282,7 +283,7 @@
                     navbar.classList.remove('bg-transparent', 'bg-white', 'bg-white/95', 'bg-blue-600/90');
                     navbar.classList.add('backdrop-blur-md', 'shadow-lg');
                     // Force blue background with !important
-                    navbar.style.setProperty('background-color', 'rgba(26, 71, 181, 0.9)', 'important');
+                    navbar.style.setProperty('background-color', 'rgba(8, 51, 62, 0.94)', 'important');
                 } else {
                     // Remove all background classes and effects
                     navbar.classList.remove('backdrop-blur-md', 'shadow-lg', 'bg-white', 'bg-white/95', 'bg-blue-600/90');
@@ -293,7 +294,7 @@
                 // Other pages: navbar is always blue
                 navbar.classList.remove('bg-transparent', 'bg-white', 'bg-white/95', 'bg-blue-600/90');
                 navbar.classList.add('backdrop-blur-md', 'shadow-lg');
-                navbar.style.setProperty('background-color', 'rgba(26, 71, 181, 0.9)', 'important');
+                navbar.style.setProperty('background-color', 'rgba(8, 51, 62, 0.94)', 'important');
             }
             
             // Text color logic

@@ -199,25 +199,3 @@ document.addEventListener('click', (e) => {
         }
     }
 });
-
-// Back to top button
-const backToTopButton = document.createElement('button');
-backToTopButton.innerHTML = `
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
-    </svg>
-`;
-backToTopButton.className = 'fixed bottom-8 right-8 bg-primary-500 hover:bg-primary-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 pointer-events-none z-50';
-backToTopButton.onclick = () => window.scrollToTop();
-
-document.body.appendChild(backToTopButton);
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
-        backToTopButton.classList.add('opacity-100');
-    } else {
-        backToTopButton.classList.add('opacity-0', 'pointer-events-none');
-        backToTopButton.classList.remove('opacity-100');
-    }
-});

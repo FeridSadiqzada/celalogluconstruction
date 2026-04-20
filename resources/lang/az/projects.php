@@ -29,6 +29,7 @@ return [
     'type' => 'Tip',
     'year' => 'İl',
     'details' => 'Ətraflı',
+    'units_format' => ':count ədəd',
     
     // Project Titles
     'modern_villa_title' => 'Müasir Villa Tikintisi',

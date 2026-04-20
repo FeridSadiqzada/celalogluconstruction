@@ -1,631 +1,410 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-.carousel-slide {
-    transition: opacity 2s ease-in-out, transform 20s ease-in-out;
-    background-attachment: fixed;
-}
+<script>document.documentElement.classList.add('anim-home');</script>
+<div class="bg-[#fafbfc]">
+    {{-- Hero — dərin teal, iki sütun, thumb sırası --}}
+    <section id="hero" class="relative min-h-[100svh] hero-deep-teal text-white overflow-hidden pt-24 md:pt-28 pb-16 md:pb-20">
+        <div class="pointer-events-none absolute inset-0 hero-x-watermark"></div>
+        <div class="pointer-events-none absolute -right-24 top-1/4 h-[520px] w-[520px] rounded-full bg-teal-400/10 blur-3xl"></div>
+        <div class="pointer-events-none absolute -left-32 bottom-0 h-[420px] w-[420px] rounded-full bg-cyan-300/5 blur-3xl"></div>
 
-.carousel-slide.active {
-    transform: scale(1.02);
-}
-
-/* Ensure proper centering for 4:3 images on wide screens */
-@media (min-aspect-ratio: 16/9) {
-    .carousel-slide {
-        background-size: cover !important;
-        background-position: center center !important;
-    }
-}
-
-/* For mobile devices */
-@media (max-width: 768px) {
-    .carousel-slide {
-        background-size: cover !important;
-        background-position: center center !important;
-        background-attachment: scroll;
-    }
-}
-</style>
-<div class="relative">
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden py-8 md:py-12">
-        <!-- Image Carousel Background -->
-        <div class="absolute inset-0">
-            <!-- Carousel Images -->
-            <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-2000 ease-in-out" 
-                 style="background-image: url('{{ asset('images/carousel1.jpg') }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-                <div class="absolute inset-0 bg-black/40"></div>
-            </div>
-            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-2000 ease-in-out" 
-                 style="background-image: url('{{ asset('images/carousel2.jpg') }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-                <div class="absolute inset-0 bg-black/40"></div>
-            </div>
-            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-2000 ease-in-out" 
-                 style="background-image: url('{{ asset('images/carousel3.jpg') }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-                <div class="absolute inset-0 bg-black/40"></div>
-            </div>
-            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-2000 ease-in-out" 
-                 style="background-image: url('{{ asset('images/carousel4.jpg') }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-                <div class="absolute inset-0 bg-black/40"></div>
-            </div>
-            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-2000 ease-in-out" 
-                 style="background-image: url('{{ asset('images/carousel5.jpg') }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-                <div class="absolute inset-0 bg-black/40"></div>
-            </div>
-            
-            <!-- Subtle Floating Elements -->
-            <div class="absolute top-20 right-20 w-16 h-16 bg-white/5 rounded-full animate-pulse"></div>
-            <div class="absolute bottom-20 left-20 w-12 h-12 bg-white/5 rounded-full animate-pulse"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center text-white py-4 md:py-8">
-            <!-- Main Content -->
-            <div class="animate-fade-in-up">
-                <p class="text-xl md:text-2xl mb-16 max-w-3xl mx-auto text-white/90 leading-relaxed font-light">
-                    {{ __('home.hero_subtitle') }}
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                <div class="lg:col-span-6 space-y-8">
+                    <div class="space-y-6">
+                        <h1 class="hero-animate-in text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.5rem] font-extrabold leading-[1.08] tracking-tight text-balance">
+                            {{ __('home.hero_headline') }}
+                        </h1>
+                        <p class="hero-animate-in hero-delay-1 text-base sm:text-lg text-white/85 max-w-xl leading-relaxed">
+                            {{ __('home.hero_body') }}
                 </p>
             </div>
 
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20 animate-fade-in-up animation-delay-300">
-                <a href="#services" class="group bg-transparent border-2 border-white hover:bg-white hover:text-[#1E9BF0] font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
-                    <svg class="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    <div class="hero-animate-in hero-delay-2 flex flex-wrap gap-4">
+                        <a href="{{ route('contact') }}"
+                           class="group inline-flex items-center gap-3 rounded-full bg-white pl-7 pr-2 py-2 text-[#08333e] shadow-lg shadow-black/15 transition hover:-translate-y-0.5 hover:shadow-xl">
+                            <span class="text-xs font-semibold uppercase tracking-wide">{{ __('home.contact_us_cta') }}</span>
+                            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#08333e] text-white transition group-hover:translate-x-0.5">
+                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
-                    {{ __('home.view_services') }}
-                </a>
-                <a href="/elaqe" class="group bg-transparent border-2 border-white hover:bg-white hover:text-[#1E9BF0] font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
-                    <svg class="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </span>
+                        </a>
+                        <a href="{{ route('about') }}"
+                           class="group inline-flex items-center gap-3 rounded-full border border-white/35 bg-white/10 px-7 py-3 text-sm font-semibold uppercase tracking-wide text-white backdrop-blur-md transition hover:border-white/55 hover:bg-white/15 hover:-translate-y-0.5">
+                            {{ __('home.learn_about_us') }}
+                            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#08333e] transition group-hover:translate-x-0.5">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
-                    {{ __('home.free_consultation') }}
+                            </span>
                 </a>
             </div>
 
-            <!-- Stats -->
-            <div id="stats-section" class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto animate-fade-in-up animation-delay-500">
-                <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl py-8 px-6 border border-white/20">
-                    <div class="text-5xl md:text-6xl font-bold text-white mb-3">
-                        <span class="counter" data-target="15">0</span>+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-4">
+                        @php
+                            $thumbs = [
+                                ['label' => __('home.thumb_framing'), 'src' => 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=400&q=80'],
+                                ['label' => __('home.thumb_concept'), 'src' => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=400&q=80'],
+                                ['label' => __('home.thumb_finishing'), 'src' => 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=400&q=80'],
+                                ['label' => __('home.thumb_reinforce'), 'src' => 'https://images.unsplash.com/photo-1541976590-713941681d42?auto=format&fit=crop&w=400&q=80'],
+                            ];
+                        @endphp
+                        @foreach ($thumbs as $i => $t)
+                            <div class="group hero-thumb-stagger" style="animation-delay: {{ 0.38 + $i * 0.09 }}s">
+                                <div class="relative aspect-[4/3] overflow-hidden rounded-lg ring-1 ring-white/20 shadow-lg shadow-black/20 transition duration-500 group-hover:ring-white/40">
+                                    <img src="{{ $t['src'] }}" alt="" class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-110" loading="lazy" decoding="async">
                     </div>
-                    <div class="text-white/80 text-lg font-medium">{{ __('home.years_experience') }}</div>
+                                <p class="mt-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white/75 transition group-hover:text-white">{{ str_pad($i + 1, 2, '0', STR_PAD_LEFT) }}. {{ $t['label'] }}</p>
                 </div>
-                <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl py-8 px-6 border border-white/20">
-                    <div class="text-5xl md:text-6xl font-bold text-white mb-3">
-                        <span class="counter" data-target="350">0</span>+
+                        @endforeach
                     </div>
-                    <div class="text-white/80 text-lg font-medium">{{ __('home.completed_projects') }}</div>
                 </div>
-                <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl py-8 px-6 border border-white/20">
-                    <div class="text-5xl md:text-6xl font-bold text-white mb-3">
-                        <span class="counter" data-target="100">0</span>%
+
+                <div class="lg:col-span-6 relative">
+                    <div class="hero-image-frame hero-image-glow relative overflow-hidden rounded-2xl shadow-2xl shadow-black/50">
+                        <div id="hero-parallax-wrap" class="aspect-[4/5] sm:aspect-[16/11] lg:aspect-[4/5] overflow-hidden rounded-2xl">
+                            <img id="hero-parallax-img"
+                                 src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1400&q=85"
+                                 alt=""
+                                 class="h-[115%] w-full object-cover object-center will-change-transform select-none"
+                                 loading="eager"
+                                 decoding="async">
+                        </div>
+                        <div class="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#08333e]/40 via-transparent to-teal-100/5"></div>
+                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#08333e]/50 to-transparent rounded-b-2xl"></div>
                     </div>
-                    <div class="text-white/80 text-lg font-medium">{{ __('home.customer_satisfaction') }}</div>
                 </div>
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <a href="#services" class="text-white hover:text-cyan-300 transition-colors duration-300">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-                </svg>
-            </a>
-        </div>
+        <a href="#portfolio" class="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/60 transition hover:text-white md:flex" aria-label="Scroll">
+            <span class="text-[10px] font-medium uppercase tracking-[0.35em]">scroll</span>
+            <svg class="h-6 w-6 animate-scroll-hint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </a>
     </section>
 
-    <!-- Services Preview Section -->
-    <section id="services" class="py-20 lg:py-32 bg-white">
+    {{-- Portfel — başlıq + iki böyük kart + üç sütun --}}
+    <section id="portfolio" class="relative overflow-hidden py-20 lg:py-28 bg-gradient-to-b from-white via-white to-[#f4f7f8]">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#08333e]/15 to-transparent"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    {{ __('home.our_services') }}
+            <div class="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-16">
+                <div class="max-w-2xl space-y-5 js-reveal">
+                    <h2 class="text-3xl sm:text-4xl lg:text-[2.65rem] font-extrabold tracking-tight text-[#0a1f2c] leading-[1.12]">
+                        {{ __('home.portfolio_section_title') }}
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    {{ __('home.services_subtitle') }}
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Ev Tikintisi -->
-                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-                    <div class="w-16 h-16 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('home.house_construction') }}</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        {{ __('home.house_construction_desc') }}
+                    <p class="text-lg text-gray-600 leading-relaxed max-w-xl">
+                        {{ __('home.portfolio_section_subtitle') }}
                     </p>
-                    <a href="/xidmetler" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
-                        {{ __('home.more_details') }}
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
                 </div>
-
-                <!-- Villa Tikintisi -->
-                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-                    <div class="w-16 h-16 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('home.villa_construction') }}</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        {{ __('home.villa_construction_desc') }}
-                    </p>
-                    <a href="/xidmetler" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
-                        {{ __('home.more_details') }}
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Təmir İşləri -->
-                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-                    <div class="w-16 h-16 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('home.renovation_works') }}</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        {{ __('home.renovation_works_desc') }}
-                    </p>
-                    <a href="/xidmetler" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
-                        {{ __('home.more_details') }}
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
+                <div class="shrink-0 js-reveal js-reveal-delay-1">
+                    <a href="{{ route('projects.index') }}"
+                       class="group inline-flex items-center gap-3 rounded-full bg-[#0a1f2c] pl-8 pr-2 py-2 text-white shadow-lg shadow-black/15 ring-1 ring-black/5 transition hover:-translate-y-1 hover:bg-[#051525] hover:shadow-xl">
+                        <span class="text-xs font-semibold uppercase tracking-wide">{{ __('home.view_portfolio') }}</span>
+                        <span class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#0a1f2c] transition group-hover:translate-x-0.5">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </span>
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Projects Preview Section -->
-    <section class="py-20 lg:py-32 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    {{ __('home.recent_projects') }}
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    {{ __('home.projects_subtitle') }}
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <!-- Project 1 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
-                    <div class="h-64 bg-gray-100 overflow-hidden">
-                        <img src="{{ asset('images/baku.jpg') }}" alt="Müasir Villa - Bakı" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-6 lg:mb-8">
+                @php
+                    $large = [
+                        ['title' => __('home.project_horizon_title'), 'desc' => __('home.project_horizon_desc'), 'img' => 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=85'],
+                        ['title' => __('home.project_riverside_title'), 'desc' => __('home.project_riverside_desc'), 'img' => 'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1200&q=85'],
+                    ];
+                @endphp
+                @foreach ($large as $idx => $card)
+                    <article class="portfolio-card-zoom js-reveal js-reveal-delay-{{ min($idx + 1, 5) }} group relative overflow-hidden rounded-2xl bg-[#0a1f2c] ring-1 ring-black/[0.06] shadow-xl shadow-black/10">
+                        <div class="aspect-[16/11] overflow-hidden">
+                            <img src="{{ $card['img'] }}" alt="" class="h-full w-full object-cover" loading="lazy">
+                        </div>
+                        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent opacity-95"></div>
+                        <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+                            <div class="portfolio-float-panel pointer-events-auto flex flex-col gap-4 rounded-xl bg-white/[0.97] p-5 shadow-2xl ring-1 ring-black/[0.06] backdrop-blur-md sm:flex-row sm:items-center sm:justify-between">
+                                <div class="min-w-0 flex-1 space-y-2">
+                                    <h3 class="text-lg font-bold text-[#0a1f2c]">{{ $card['title'] }}</h3>
+                                    <p class="text-sm leading-relaxed text-gray-600">{{ $card['desc'] }}</p>
+                                </div>
+                                <div class="flex shrink-0 items-center gap-3 sm:border-l sm:border-gray-200 sm:pl-6">
+                                    <a href="{{ route('projects.index') }}" class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-[#0a1f2c] text-white transition hover:bg-[#08333e]" aria-label="{{ __('home.more_details') }}">
+                                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                                    </a>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('home.modern_villa_baku') }}</h3>
-                        <p class="text-gray-600 mb-4">{{ __('home.modern_villa_desc') }}</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">2024</span>
-                            <a href="/layiheler" class="text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold">{{ __('home.more_details') }} →</a>
+                </div>
+                        </div>
+                    </article>
+                @endforeach
+                </div>
+
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                @php
+                    $compact = [
+                        ['t' => __('home.project_serenity'), 'img' => 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=85'],
+                        ['t' => __('home.project_harmony'), 'img' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=85'],
+                        ['t' => __('home.project_maplewood'), 'img' => 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85'],
+                    ];
+                @endphp
+                @foreach ($compact as $ci => $item)
+                    <article class="portfolio-card-zoom js-reveal js-reveal-delay-{{ min($ci + 2, 5) }} group overflow-hidden rounded-2xl bg-white ring-1 ring-black/[0.06] shadow-lg shadow-black/[0.04] transition hover:shadow-xl">
+                        <div class="relative aspect-[3/4] overflow-hidden">
+                            <img src="{{ $item['img'] }}" alt="" class="h-full w-full object-cover" loading="lazy">
+                            <div class="absolute inset-x-0 bottom-0">
+                                <div class="mx-3 mb-3 flex items-center justify-between gap-3 rounded-xl bg-white/95 px-4 py-3 shadow-lg ring-1 ring-black/5 backdrop-blur-sm">
+                                    <span class="truncate text-sm font-bold text-[#0a1f2c]">{{ $item['t'] }}</span>
+                                    <a href="{{ route('projects.index') }}" class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#0a1f2c] text-white transition hover:bg-[#08333e]" aria-label="{{ __('home.more_details') }}">
+                                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                                    </a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Project 2 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
-                    <div class="h-64 bg-gray-100 overflow-hidden">
-                        <img src="{{ asset('images/referans.jpg') }}" alt="Yaşayış Kompleksi - Sumqayıt" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('home.residential_complex') }}</h3>
-                        <p class="text-gray-600 mb-4">{{ __('home.residential_complex_desc') }}</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">2023</span>
-                            <a href="/layiheler" class="text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold">{{ __('home.more_details') }} →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
-                    <div class="h-64 bg-gray-100 overflow-hidden">
-                        <img src="{{ asset('images/ofis.jpg') }}" alt="Ofis Binası - Gəncə" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('home.office_building') }}</h3>
-                        <p class="text-gray-600 mb-4">{{ __('home.office_building_desc') }}</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">2023</span>
-                            <a href="/layiheler" class="text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold">{{ __('home.more_details') }} →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center">
-                <a href="/layiheler" class="bg-[#1E9BF0] hover:bg-[#0F7BC7] text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
-                    {{ __('home.view_all_projects') }}
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                </a>
+                    </article>
+                @endforeach
             </div>
         </div>
     </section>
 
-    <!-- Partners Preview Section -->
-    <section class="py-20 lg:py-32 bg-white">
+    {{-- Statistikalar + böyük görüntü --}}
+    <section id="stats-strip" class="relative py-20 lg:py-28 bg-[#fafbfc]" aria-labelledby="stats-heading">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    {{ __('home.our_partners') }}
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    {{ __('home.partners_subtitle') }}
-                </p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center mb-12">
-                <!-- Partner logos placeholder -->
-                <div class="bg-gray-100 rounded-xl p-6 flex items-center justify-center h-24 hover:bg-gray-200 transition-colors duration-300">
-                    <span class="text-gray-500 font-medium">Partner 1</span>
-                </div>
-                <div class="bg-gray-100 rounded-xl p-6 flex items-center justify-center h-24 hover:bg-gray-200 transition-colors duration-300">
-                    <span class="text-gray-500 font-medium">Partner 2</span>
-                </div>
-                <div class="bg-gray-100 rounded-xl p-6 flex items-center justify-center h-24 hover:bg-gray-200 transition-colors duration-300">
-                    <span class="text-gray-500 font-medium">Partner 3</span>
-                </div>
-                <div class="bg-gray-100 rounded-xl p-6 flex items-center justify-center h-24 hover:bg-gray-200 transition-colors duration-300">
-                    <span class="text-gray-500 font-medium">Partner 4</span>
-                </div>
-                <div class="bg-gray-100 rounded-xl p-6 flex items-center justify-center h-24 hover:bg-gray-200 transition-colors duration-300">
-                    <span class="text-gray-500 font-medium">Partner 5</span>
-                </div>
-                <div class="bg-gray-100 rounded-xl p-6 flex items-center justify-center h-24 hover:bg-gray-200 transition-colors duration-300">
-                    <span class="text-gray-500 font-medium">Partner 6</span>
-                </div>
-            </div>
-
-            <div class="text-center">
-                <a href="/terefdaslar" class="text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold inline-flex items-center gap-2">
-                    {{ __('home.view_all_partners') }}
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us Preview Section -->
-    <section class="py-20 lg:py-32 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        <span class="bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] bg-clip-text text-transparent">{{ __('home.about_us') }}</span> {{ __('home.about_brief') }}
-                    </h2>
-                    <p class="text-xl text-gray-600 mb-6 leading-relaxed">
-                        {{ __('home.about_desc1') }}
+            <h2 id="stats-heading" class="sr-only">{{ __('home.stat_projects_label') }}</h2>
+            <div class="grid gap-12 md:grid-cols-3 md:gap-8 text-center">
+                <div class="space-y-3 js-reveal">
+                    <p class="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0f172a] md:text-[2.75rem]" style="letter-spacing: -0.02em;">
+                        <span class="counter" data-target="2000">0</span>+
                     </p>
-                    <p class="text-lg text-gray-600 mb-8">
-                        {{ __('home.about_desc2') }}
+                    <p class="text-sm sm:text-base font-medium text-slate-500">{{ __('home.stat_projects_label') }}</p>
+                </div>
+                <div class="space-y-3 js-reveal js-reveal-delay-1">
+                    <p class="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0f172a] md:text-[2.75rem]" style="letter-spacing: -0.02em;">
+                        {{ __('home.stat_clients_num') }}
                     </p>
-                    <a href="/haqqimizda" class="bg-[#1E9BF0] hover:bg-[#0F7BC7] text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
-                        {{ __('home.read_more') }}
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
+                    <p class="text-sm sm:text-base font-medium text-slate-500">{{ __('home.stat_clients_label') }}</p>
+                </div>
+                <div class="space-y-3 js-reveal js-reveal-delay-2">
+                    <p class="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0f172a] md:text-[2.75rem]" style="letter-spacing: -0.02em;">
+                        <span class="counter" data-target="200">0</span>+
+                    </p>
+                    <p class="text-sm sm:text-base font-medium text-slate-500">{{ __('home.stat_experts_label') }}</p>
+                </div>
+            </div>
+
+            <div class="mt-16 lg:mt-20 js-reveal js-reveal-delay-3">
+                <div class="stats-image-wrap relative overflow-hidden rounded-2xl shadow-[0_28px_80px_-40px_rgba(15,23,42,0.45)] ring-1 ring-black/[0.06]">
+                    <img src="https://images.unsplash.com/photo-1610296669228-f701bec41845?auto=format&fit=crop&w=2000&q=85"
+                         alt="{{ __('home.stat_image_alt') }}"
+                         id="stats-hero-img"
+                         class="aspect-[21/9] w-full object-cover transition duration-[1.8s] ease-out hover:scale-[1.03] sm:aspect-[24/9]"
+                         loading="lazy">
+                    <div class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Tərəfdaşlar --}}
+    <section class="relative border-y border-gray-100/80 bg-gradient-to-b from-white via-white to-[#f6f8fa] py-16 lg:py-20">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#08333e]/12 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-12 mb-10 lg:mb-12">
+                <div class="max-w-2xl space-y-3 js-reveal text-left">
+                    <p class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-400">{{ __('home.partners_trust_label') }}</p>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0a1f2c] leading-tight">{{ __('home.our_partners') }}</h2>
+                    <p class="text-base text-gray-600 leading-relaxed">{{ __('home.partners_subtitle') }}</p>
+                </div>
+                <div class="shrink-0 js-reveal js-reveal-delay-1">
+                    <a href="{{ route('partners.index') }}"
+                       class="group inline-flex items-center gap-3 rounded-full bg-[#0a1f2c] pl-8 pr-2 py-2 text-white shadow-lg shadow-black/15 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-[#051525] hover:shadow-xl">
+                        <span class="text-xs font-semibold uppercase tracking-wide">{{ __('home.view_all_partners') }}</span>
+                        <span class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#0a1f2c] transition group-hover:translate-x-0.5">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </span>
                     </a>
                 </div>
-                <div id="about-stats" class="grid grid-cols-2 gap-6">
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
-                        <div class="text-3xl font-bold text-[#1E9BF0] mb-2">
-                            <span class="counter" data-target="350">0</span>+
-                        </div>
-                        <div class="text-gray-600">{{ __('home.completed_projects') }}</div>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px overflow-hidden rounded-2xl bg-gray-200/90 ring-1 ring-gray-200/90 shadow-sm shadow-black/[0.03] js-reveal js-reveal-delay-1">
+                @for ($i = 1; $i <= 5; $i++)
+                    <div class="flex h-[5.25rem] items-center justify-center bg-white px-4 transition duration-300 hover:bg-[#fafbfc] hover:shadow-inner">
+                        <span class="text-sm font-semibold tracking-tight text-gray-400">Partner {{ $i }}</span>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
-                        <div class="text-3xl font-bold text-[#1E9BF0] mb-2">
-                            <span class="counter" data-target="15">0</span>+
-                        </div>
-                        <div class="text-gray-600">{{ __('home.years_experience') }}</div>
-                    </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
-                        <div class="text-3xl font-bold text-[#1E9BF0] mb-2">
-                            <span class="counter" data-target="50">0</span>+
-                        </div>
-                        <div class="text-gray-600">{{ __('home.professional_workers') }}</div>
-                    </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
-                        <div class="text-3xl font-bold text-[#1E9BF0] mb-2">
-                            <span class="counter" data-target="100">0</span>%
-                        </div>
-                        <div class="text-gray-600">{{ __('home.customer_satisfaction') }}</div>
-                    </div>
-                </div>
+                @endfor
             </div>
         </div>
     </section>
 
-    <!-- Instagram Posts Section -->
-    <section class="py-20 lg:py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    {{ __('home.instagram_posts') }}
+    {{-- Xidmətlər — üç kart, ox düymələri --}}
+    <section id="services" class="relative py-20 lg:py-28 bg-[#eef1f4]">
+        <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(8,51,62,0.06),transparent)]"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between mb-12 lg:mb-14">
+                <h2 class="max-w-xl text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0a1f2c] leading-tight js-reveal">
+                    {{ __('home.services_comprehensive') }}
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                    {{ __('home.instagram_subtitle') }}
-                </p>
-                <a href="https://instagram.com/calaloglu_inshaat" target="_blank" class="inline-flex items-center gap-2 text-pink-600 hover:text-pink-700 font-semibold">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                    {{ __('home.instagram_handle') }}
-                </a>
-            </div>
-
-            <!-- Instagram Posts Grid (Mock) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <!-- Post 1 -->
-                <div class="bg-gray-100 rounded-2xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                    <div class="aspect-square bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center">
-                        <div class="text-center">
-                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-6 h-6 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                </svg>
-                            </div>
-                            <p class="text-gray-500 text-sm">Instagram Post</p>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-sm text-gray-600">Yeni villa layihəmizin tikinti prosesi...</p>
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="text-xs text-gray-400">2 gün əvvəl</span>
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                                </svg>
-                                <span class="text-xs text-gray-500">124</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Post 2 -->
-                <div class="bg-gray-100 rounded-2xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                    <div class="aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center">
-                        <div class="text-center">
-                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                </svg>
-                            </div>
-                            <p class="text-gray-500 text-sm">Instagram Post</p>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-sm text-gray-600">Komandamızın işdə görüntüləri...</p>
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="text-xs text-gray-400">5 gün əvvəl</span>
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                                </svg>
-                                <span class="text-xs text-gray-500">89</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Post 3 -->
-                <div class="bg-gray-100 rounded-2xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                    <div class="aspect-square bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center">
-                        <div class="text-center">
-                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                </svg>
-                            </div>
-                            <p class="text-gray-500 text-sm">Instagram Post</p>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-sm text-gray-600">Tamamlanmış layihənin son görüntüləri...</p>
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="text-xs text-gray-400">1 həftə əvvəl</span>
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                                </svg>
-                                <span class="text-xs text-gray-500">156</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Post 4 -->
-                <div class="bg-gray-100 rounded-2xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                    <div class="aspect-square bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center">
-                        <div class="text-center">
-                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-6 h-6 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                </svg>
-                            </div>
-                            <p class="text-gray-500 text-sm">Instagram Post</p>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-sm text-gray-600">Yeni materiallarımızın təqdimatı...</p>
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="text-xs text-gray-400">2 həftə əvvəl</span>
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                                </svg>
-                                <span class="text-xs text-gray-500">73</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="flex gap-3 md:pt-2 js-reveal js-reveal-delay-1">
+                    <button type="button" onclick="document.getElementById('services-track').scrollBy({ left: -340, behavior: 'smooth' })" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-300/90 bg-white text-[#0a1f2c] shadow-sm transition hover:border-[#08333e] hover:bg-[#08333e] hover:text-white active:scale-95" aria-label="Previous">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <button type="button" onclick="document.getElementById('services-track').scrollBy({ left: 340, behavior: 'smooth' })" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-300/90 bg-white text-[#0a1f2c] shadow-sm transition hover:border-[#08333e] hover:bg-[#08333e] hover:text-white active:scale-95" aria-label="Next">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </button>
                 </div>
             </div>
 
-            <div class="text-center">
-                <a href="https://instagram.com/calaloglu_inshaat" target="_blank" class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
-                    </svg>
-                    {{ __('home.visit_instagram') }}
-                </a>
+            <div id="services-track" class="service-scroll -mx-4 flex gap-6 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-0 md:pb-0">
+                @php
+                    $svc = [
+                        ['n' => '01', 'title' => __('home.service_card_1_title'), 'desc' => __('home.service_card_1_desc')],
+                        ['n' => '02', 'title' => __('home.service_card_2_title'), 'desc' => __('home.service_card_2_desc')],
+                        ['n' => '03', 'title' => __('home.service_card_3_title'), 'desc' => __('home.service_card_3_desc')],
+                    ];
+                @endphp
+                @foreach ($svc as $si => $row)
+                    <article class="service-card-home js-reveal js-reveal-delay-{{ min($si + 1, 5) }} min-w-[85vw] shrink-0 rounded-2xl border border-gray-200/70 bg-white p-8 shadow-sm sm:min-w-[360px] md:min-w-0">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-full border border-[#0a1f2c]/15 text-sm font-bold text-[#0a1f2c]">{{ $row['n'] }}</div>
+                        <h3 class="mt-6 text-xl font-bold text-[#0a1f2c]">{{ $row['title'] }}</h3>
+                        <p class="mt-4 text-sm leading-relaxed text-gray-600">{{ $row['desc'] }}</p>
+                        <div class="my-8 border-t border-gray-100"></div>
+                        <a href="{{ route('services.index') }}" class="group inline-flex items-center gap-2 rounded-full bg-[#0a1f2c] px-6 py-3 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-[#08333e]">
+                            {{ __('home.view_more') }}
+                            <svg class="h-4 w-4 transition group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </article>
+                @endforeach
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-16 lg:py-24 bg-blue-600 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                {{ __('home.cta_title') }}
-            </h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">
-                {{ __('home.cta_subtitle') }}
-            </p>
-            <a href="/elaqe" class="bg-cyan-500 hover:bg-cyan-600 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center gap-2">
+    {{-- Son CTA (müştəri rəylərindən əvvəl) --}}
+    <section class="relative overflow-hidden py-16 lg:py-24 bg-[#0a1f2c] text-white">
+        <div class="pointer-events-none absolute -right-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-[#08333e]/40 blur-3xl"></div>
+        <div class="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-full bg-teal-400/10 blur-3xl"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center js-reveal">
+            <h2 class="text-3xl md:text-[2.35rem] font-extrabold tracking-tight leading-tight">{{ __('home.cta_title') }}</h2>
+            <p class="mx-auto mt-5 max-w-2xl text-lg text-white/75 leading-relaxed">{{ __('home.cta_subtitle') }}</p>
+            <a href="{{ route('contact') }}" class="cta-shimmer-hover mt-11 inline-flex items-center gap-3 rounded-full bg-white px-8 py-3.5 text-sm font-semibold uppercase tracking-wide text-[#0a1f2c] shadow-xl shadow-black/20 ring-1 ring-white/10 transition hover:-translate-y-1 hover:shadow-2xl">
                 {{ __('home.cta_button') }}
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-[#0a1f2c] text-white">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </span>
             </a>
+        </div>
+    </section>
+
+    {{-- Müştəri rəyləri — CTA-dan sonra, footer-dan əvvəl --}}
+    <section class="relative py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between mb-14">
+                <div class="max-w-2xl space-y-5 js-reveal">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#051d29]">{{ __('home.testimonials_title') }}</h2>
+                    <p class="text-lg leading-relaxed text-gray-600">{{ __('home.testimonials_subtitle') }}</p>
+                </div>
+                <div class="flex gap-3 js-reveal js-reveal-delay-1">
+                    <button type="button" onclick="document.getElementById('testimonials-row').scrollBy({ left: -380, behavior: 'smooth' })" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-300 text-[#051d29] shadow-sm transition hover:bg-gray-50 active:scale-95" aria-label="Previous">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <button type="button" onclick="document.getElementById('testimonials-row').scrollBy({ left: 380, behavior: 'smooth' })" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-transparent bg-[#051d29] text-white shadow-md transition hover:bg-[#08333e] active:scale-95" aria-label="Next">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="testimonials-row" class="flex gap-6 overflow-x-auto pb-2 lg:grid lg:grid-cols-2 lg:overflow-visible lg:pb-0">
+                @php
+                    $quotes = [
+                        ['q' => __('home.testimonial_1_quote'), 'name' => __('home.testimonial_1_name'), 'role' => __('home.testimonial_1_role'), 'av' => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=96&q=80'],
+                        ['q' => __('home.testimonial_2_quote'), 'name' => __('home.testimonial_2_name'), 'role' => __('home.testimonial_2_role'), 'av' => 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=96&q=80'],
+                    ];
+                @endphp
+                @foreach ($quotes as $qi => $t)
+                    <article class="testimonial-card-home js-reveal js-reveal-delay-{{ min($qi + 2, 5) }} min-w-[min(100%,380px)] shrink-0 rounded-2xl border border-gray-100 bg-[#f9fafb] p-8 shadow-[0_24px_70px_-48px_rgba(15,23,42,0.28)] lg:min-w-0">
+                        <div class="flex gap-1 text-[#051d29]" aria-hidden="true">
+                            @for ($s = 0; $s < 5; $s++)
+                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            @endfor
+                        </div>
+                        <p class="mt-6 text-[#111827] leading-[1.65] text-[1.05rem]">{{ $t['q'] }}</p>
+                        <div class="mt-8 flex items-center gap-4">
+                            <img src="{{ $t['av'] }}" alt="" class="h-12 w-12 rounded-full object-cover ring-2 ring-white" loading="lazy">
+                            <div>
+                                <p class="font-bold text-[#051d29]">{{ $t['name'] }}</p>
+                                <p class="text-sm text-gray-500">{{ $t['role'] }}</p>
+                            </div>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
         </div>
     </section>
 </div>
 
 <script>
-// Counter Animation Function
-function animateCounter(element, target, duration = 2000) {
-    let start = 0;
-    const increment = target / (duration / 16); // 60 FPS
-    
-    function updateCounter() {
-        start += increment;
-        if (start < target) {
-            element.textContent = Math.floor(start);
-            requestAnimationFrame(updateCounter);
-        } else {
-            element.textContent = target;
+(function () {
+    var reduceMotion = typeof window.matchMedia === 'function' &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function animateCounter(el, target, duration) {
+        duration = duration || 1600;
+        var start = 0;
+        var t0 = performance.now();
+        function frame(now) {
+            var p = Math.min(1, (now - t0) / duration);
+            var eased = 1 - Math.pow(1 - p, 3);
+            var val = Math.round(start + (target - start) * eased);
+            el.textContent = val;
+            if (p < 1) requestAnimationFrame(frame);
+            else el.textContent = target;
         }
+        requestAnimationFrame(frame);
     }
-    
-    updateCounter();
-}
 
-// Intersection Observer for triggering animations
-const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '0px 0px -50px 0px'
-};
+    var heroImg = document.getElementById('hero-parallax-img');
+    function onScroll() {
+        if (!heroImg || reduceMotion) return;
+        var y = window.scrollY || window.pageYOffset;
+        var translate = Math.min(y * 0.07, 72);
+        heroImg.style.transform = 'translate3d(0,' + translate + 'px,0) scale(1.045)';
+    }
+    if (!reduceMotion) {
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    }
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const counters = entry.target.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                if (!counter.classList.contains('animated')) {
-                    const target = parseInt(counter.getAttribute('data-target'));
-                    // Small delay to ensure smooth animation
-                    setTimeout(() => {
-                        animateCounter(counter, target);
-                        counter.classList.add('animated');
-                    }, 200);
-                }
+    document.querySelectorAll('.js-reveal').forEach(function (el) {
+        if (reduceMotion) {
+            el.classList.add('is-inview');
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                e.target.classList.add('is-inview');
+                io.unobserve(e.target);
             });
-        }
+        }, { root: null, rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+        io.observe(el);
     });
-}, observerOptions);
 
-// Function to check and animate counters
-function checkAndAnimateCounters() {
-    const statsSection = document.getElementById('stats-section');
-    const aboutStats = document.getElementById('about-stats');
-    
-    // Check if elements are in viewport and animate if needed
-    [statsSection, aboutStats].forEach(section => {
-        if (section) {
-            const rect = section.getBoundingClientRect();
-            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-            
-            if (isVisible) {
-                const counters = section.querySelectorAll('.counter');
-                counters.forEach(counter => {
-                    if (!counter.classList.contains('animated')) {
-                        const target = parseInt(counter.getAttribute('data-target'));
-                        animateCounter(counter, target);
-                        counter.classList.add('animated');
-                    }
+    var stats = document.getElementById('stats-strip');
+    if (stats) {
+        var obsStats = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                entry.target.querySelectorAll('.counter').forEach(function (c) {
+                    if (c.classList.contains('animated')) return;
+                    c.classList.add('animated');
+                    var tgt = parseInt(c.getAttribute('data-target'), 10);
+                    if (!reduceMotion) animateCounter(c, tgt, 1800);
+                    else c.textContent = String(tgt);
                 });
-            }
-        }
-    });
-}
-
-// Observe stats sections and add scroll listener
-document.addEventListener('DOMContentLoaded', function() {
-    const statsSection = document.getElementById('stats-section');
-    const aboutStats = document.getElementById('about-stats');
-    
-    if (statsSection) observer.observe(statsSection);
-    if (aboutStats) observer.observe(aboutStats);
-    
-    // Also check on scroll
-    window.addEventListener('scroll', checkAndAnimateCounters);
-    
-    // Check immediately on load
-    setTimeout(checkAndAnimateCounters, 500);
-    
-    // Carousel functionality
-    initCarousel();
-});
-
-// Carousel functionality
-function initCarousel() {
-    const slides = document.querySelectorAll('.carousel-slide');
-    let currentSlide = 0;
-    
-    if (slides.length === 0) return;
-    
-    // Set initial state
-    slides[0].classList.add('active');
-    
-    function showNextSlide() {
-        // Remove active class from current slide
-        slides[currentSlide].classList.remove('active');
-        slides[currentSlide].style.opacity = '0';
-        
-        // Move to next slide
-        currentSlide = (currentSlide + 1) % slides.length;
-        
-        // Show next slide with delay for smooth transition
-        setTimeout(() => {
-            slides[currentSlide].style.opacity = '1';
-            slides[currentSlide].classList.add('active');
-        }, 100);
+                obsStats.unobserve(entry.target);
+            });
+        }, { threshold: 0.28 });
+        obsStats.observe(stats);
     }
-    
-    // Change slide every 6 seconds for slower, more elegant transition
-    setInterval(showNextSlide, 6000);
-}
+})();
 </script>
-
 @endsection

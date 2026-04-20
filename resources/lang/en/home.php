@@ -1,6 +1,57 @@
 <?php
 
 return [
+    // Hero — new layout
+    'hero_headline' => 'Crafting quality structures for a brighter future.',
+    'hero_body' => 'Our team of skilled professionals brings deep experience to every project—residential, commercial, or industrial.',
+    'contact_us_cta' => 'Contact us',
+    'learn_about_us' => 'Learn about us',
+    'thumb_framing' => 'FRAMING',
+    'thumb_concept' => 'CONCEPT',
+    'thumb_finishing' => 'FINISHING',
+    'thumb_reinforce' => 'REINFORCE',
+
+    // Portfolio
+    'portfolio_section_title' => 'Several selected building works.',
+    'portfolio_section_subtitle' => 'Our portfolio stands as a testament to our commitment to excellence in construction.',
+    'view_portfolio' => 'View portfolio',
+    'project_horizon_title' => 'Horizonline Office Park',
+    'project_horizon_desc' => 'Discover the artistry and craftsmanship behind our residential projects.',
+    'project_riverside_title' => 'Riverside Trade Center',
+    'project_riverside_desc' => 'Every development shaped by smart planning and modern execution.',
+    'project_serenity' => 'Serenity Apartments',
+    'project_harmony' => 'Harmony Residences',
+    'project_maplewood' => 'Maplewood Manor',
+
+    // Stats
+    'stat_projects_num' => '2000+',
+    'stat_projects_label' => 'Successful projects completed',
+    'stat_clients_num' => '10k+',
+    'stat_clients_label' => 'Happy valued clients',
+    'stat_experts_num' => '200+',
+    'stat_experts_label' => 'Expert certified builders',
+    'stat_image_alt' => 'Contemporary architecture',
+
+    // Services cards
+    'services_comprehensive' => 'A comprehensive set of services',
+    'service_card_1_title' => 'Welding works',
+    'service_card_1_desc' => 'Industrial-strength joins and precision welding for structural and finishing phases.',
+    'service_card_2_title' => 'General building',
+    'service_card_2_desc' => 'Foundations to envelope—coordinated execution with clear timelines and safety standards.',
+    'service_card_3_title' => 'Construction build',
+    'service_card_3_desc' => 'End-to-end structural work using modern materials and rigorous quality control.',
+    'view_more' => 'View more',
+
+    // Testimonials
+    'testimonials_title' => 'Customer testimonials',
+    'testimonials_subtitle' => 'Our clients are at the center of everything we do—we treat every project as a collaborative journey.',
+    'testimonial_1_quote' => 'Cəlaloğlu exceeded our expectations from planning to the final walkthrough—true dedication to quality. They made our dream home a reality.',
+    'testimonial_1_name' => 'Michael Turner',
+    'testimonial_1_role' => 'Property developer',
+    'testimonial_2_quote' => 'Outstanding results, crisp communication, and flawless attention to detail. We could not be happier.',
+    'testimonial_2_name' => 'Sarah Collins',
+    'testimonial_2_role' => 'Interior design consultant',
+
     // Hero Section
     'hero_subtitle' => 'We bring your dreams to life with quality construction services',
     'view_services' => 'View Our Services',
@@ -34,6 +85,9 @@ return [
     'office_building_desc' => '5-story modern office building. Energy efficient solutions and modern design.',
     'view_all_projects' => 'View All Projects',
     
+    // Partners strip
+    'partners_trust_label' => 'Our trusted partners',
+
     // Partners Section
     'our_partners' => 'Our Partners',
     'partners_subtitle' => 'Reliable partners for quality materials and services',

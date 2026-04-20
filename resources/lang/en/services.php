@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'page_title' => 'Our Services',
-    'page_subtitle' => 'We provide quality construction services with our professional team',
+    'page_title' => 'Our services.',
+    'page_subtitle' => 'Every build starts with the right expertise. Explore our construction services designed to deliver quality, reliability, and trusted results.',
     
     // Construction
     'construction' => 'Construction',

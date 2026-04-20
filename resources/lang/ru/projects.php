@@ -29,6 +29,7 @@ return [
     'type' => 'Тип',
     'year' => 'Год',
     'details' => 'Подробнее',
+    'units_format' => ':count квартир',
     
     // Project Titles
     'modern_villa_title' => 'Строительство Современной Виллы',

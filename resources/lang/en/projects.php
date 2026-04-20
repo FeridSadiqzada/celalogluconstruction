@@ -29,6 +29,7 @@ return [
     'type' => 'Type',
     'year' => 'Year',
     'details' => 'Details',
+    'units_format' => ':count units',
     
     // Project Titles
     'modern_villa_title' => 'Modern Villa Construction',

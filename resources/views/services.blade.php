@@ -2,201 +2,234 @@
 
 @section('content')
 <div class="pt-20">
-    <!-- Hero Section -->
-    <section class="relative py-20 lg:py-32 bg-gradient-to-br from-[#1E9BF0] to-[#9CA3AF] text-white overflow-hidden">
-        <div class="absolute inset-0 bg-black/20"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                    {{ __('services.page_title') }}
-                </h1>
-                <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
-                    {{ __('services.page_subtitle') }}
-                </p>
-            </div>
-        </div>
-    </section>
+    <div class="relative page-services-strux" style="background-size: 280px 280px !important;">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-300/40 to-transparent"></div>
 
-    <!-- Services Grid -->
-    <section class="py-20 lg:py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Tikinti -->
-                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-                    <div class="w-16 h-16 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('services.construction') }}</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        {{ __('services.construction_desc') }}
-                    </p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.residential_construction') }}
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.commercial_construction') }}
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.industrial_construction') }}
-                        </li>
-                    </ul>
-                    <a href="/elaqe" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
-                        {{ __('services.get_quote') }}
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Təmir -->
-                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-                    <div class="w-16 h-16 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('services.renovation_works') }}</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        {{ __('services.renovation_works_desc') }}
-                    </p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.capital_repair') }}
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.reconstruction') }}
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.restoration') }}
-                        </li>
-                    </ul>
-                    <a href="/elaqe" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
-                        {{ __('services.get_quote') }}
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- MEP İşləri -->
-                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-                    <div class="w-16 h-16 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('services.mep_works') }}</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        {{ __('services.mep_works_desc') }}
-                    </p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.electrical_systems') }}
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.plumbing_systems') }}
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.hvac_systems') }}
-                        </li>
-                    </ul>
-                    <a href="/elaqe" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
-                        {{ __('services.get_quote') }}
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Layihələndirmə -->
-                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-                    <div class="w-16 h-16 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ __('services.project_design') }}</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        {{ __('services.project_design_desc') }}
-                    </p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.architectural_project') }}
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.construction_project') }}
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-[#1E9BF0]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            {{ __('services.permit_documents') }}
-                        </li>
-                    </ul>
-                    <a href="/elaqe" class="inline-flex items-center text-[#1E9BF0] hover:text-[#0F7BC7] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
-                        {{ __('services.get_quote') }}
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-[#1E9BF0] to-[#9CA3AF] text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                {{ __('services.cta_title') }}
-            </h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">
-                {{ __('services.cta_subtitle') }}
+        {{-- Başlıq --}}
+        <section class="relative z-10 mx-auto max-w-7xl px-4 pb-6 pt-20 text-center sm:px-6 sm:pt-24 lg:px-8 lg:pt-28">
+            <h1 class="services-title text-[3rem] font-extrabold leading-[1.08] tracking-[-0.02em] text-[#0f1c21] sm:text-[4rem] lg:text-[5rem]">
+                {{ __('services.page_title') }}
+            </h1>
+            <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-gray-400 lg:text-lg">
+                {{ __('services.page_subtitle') }}
             </p>
-            <a href="/elaqe" class="bg-white text-[#1E9BF0] hover:bg-gray-100 font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                </svg>
+        </section>
+
+        @php
+            $serviceCards = [
+                ['num' => '01', 'title' => __('services.construction'),      'desc' => __('services.construction_desc')],
+                ['num' => '02', 'title' => __('services.renovation_works'),  'desc' => __('services.renovation_works_desc')],
+                ['num' => '03', 'title' => __('services.mep_works'),         'desc' => __('services.mep_works_desc')],
+                ['num' => '04', 'title' => __('services.project_design'),    'desc' => __('services.project_design_desc')],
+                ['num' => '05', 'title' => __('services.interior_design'),   'desc' => __('services.interior_design_desc')],
+                ['num' => '06', 'title' => __('services.consulting'),        'desc' => __('services.consulting_desc')],
+            ];
+        @endphp
+
+        {{-- Xidmət kartları --}}
+        <section class="relative z-10 mx-auto max-w-7xl px-4 pb-0 pt-12 sm:px-6 lg:px-8">
+            <div class="services-grid">
+                @foreach ($serviceCards as $i => $card)
+                    <article class="service-card-strux group">
+                        {{-- Nömrə --}}
+                        <div class="service-num">{{ $card['num'] }}</div>
+
+                        {{-- Məzmun --}}
+                        <div class="flex flex-1 flex-col pt-10">
+                            <h3 class="service-heading">{{ $card['title'] }}</h3>
+                            <p class="service-desc">{{ $card['desc'] }}</p>
+                        </div>
+
+                        {{-- Düymə --}}
+                        <div class="mt-10 pt-6 border-t border-gray-100">
+                            <a href="{{ route('contact') }}" class="view-more-btn">
+                                <span>{{ __('services.get_quote') }}</span>
+                                <svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
+        </section>
+
+        {{-- Etibarlı tərəfdaşlar --}}
+        <section class="relative z-10 border-t border-gray-200/70 bg-white/80 py-14 backdrop-blur-[2px] lg:py-16">
+            <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+                <p class="partners-label">{{ __('home.partners_trust_label') }}</p>
+                <div class="mt-9 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-gray-200/90 bg-gray-200 sm:grid-cols-3 lg:grid-cols-5">
+                    @for ($i = 1; $i <= 5; $i++)
+                        <div class="partner-cell">
+                            {{-- Real loqolar əvəzinə placeholder --}}
+                            <span class="text-sm font-semibold tracking-tight text-gray-400">Partner {{ $i }}</span>
+                        </div>
+                    @endfor
+                </div>
+            </div>
+        </section>
+    </div>
+
+    {{-- CTA zolağı --}}
+    <section class="relative overflow-hidden border-t border-gray-200/90 bg-white py-20 lg:py-28">
+        <div class="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+            <h2 class="cta-title">{{ __('services.cta_title') }}</h2>
+            <p class="mx-auto mt-5 max-w-2xl text-base text-gray-500 lg:text-lg">{{ __('services.cta_subtitle') }}</p>
+            <a href="{{ route('contact') }}" class="cta-btn">
                 {{ __('services.contact_now') }}
+                <span class="cta-btn-icon">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </span>
             </a>
         </div>
     </section>
 </div>
+
+<style>
+/* ─── Tipografiya ────────────────────────────────────────────── */
+.services-title {
+    /* Böyük, qalın başlıq — STRUX-ə bənzər */
+    letter-spacing: -0.03em;
+}
+
+/* ─── Xidmət kartları şəbəkəsi ──────────────────────────────── */
+.services-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    border-left: 1px solid rgba(203, 213, 225, 0.6);
+    border-top: 1px solid rgba(203, 213, 225, 0.6);
+    padding-bottom: 20px;
+}
+
+@media (min-width: 640px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ─── Tək kart ───────────────────────────────────────────────── */
+.service-card-strux {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 2.25rem 2rem 2rem;
+    border-radius: 15px;
+    background-color: #ffffff;
+    border-right: 1px solid rgba(203, 213, 225, 0.6);
+    border-bottom: 1px solid rgba(203, 213, 225, 0.6);
+    transition: background-color 0.25s ease;
+}
+
+.service-card-strux:hover {
+    background-color: #f8fafc;
+}
+
+/* ─── Nömrə badge ────────────────────────────────────────────── */
+.service-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background-color: #f0f4f8;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #0f1c21;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+/* ─── Başlıq ─────────────────────────────────────────────────── */
+.service-heading {
+    font-size: 1.375rem;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: #0f1c21;
+    margin-top: 1.25rem;
+    /* İlk xidmət başlığı teal rəngdə (screenshot 2-dəki kimi) */
+}
+
+/* İlk kart başlığını teal et (screenshot-dakı "Interior design" kimi) */
+.service-card-strux:first-child .service-heading {
+    color: #076b75;
+}
+
+/* ─── Təsvir ─────────────────────────────────────────────────── */
+.service-desc {
+    margin-top: 0.75rem;
+    flex: 1;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: #6b7280;
+}
+
+/* ─── VIEW MORE düyməsi ──────────────────────────────────────── */
+.view-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;           /* tam yuvarlaq — STRUX stili */
+    background-color: #002b36;
+    padding: 0.75rem 1.35rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.view-more-btn:hover {
+    background-color: #063542;
+    transform: translateY(-1px);
+}
+
+.btn-arrow {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.view-more-btn:hover .btn-arrow {
+    transform: translateX(3px);
+}
+
+/* ─── Tərəfdaşlar ────────────────────────────────────────────── */
+.partners-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #9ca3af;
+}
+
+.partner-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5.25rem;
+    background-color: #ffffff;
+    padding: 0 0.75rem;
+    transition: background-color 0.2s ease;
+}
+
+.partner-cell:hover {
+    background-color: #f8fafc;
+}
+</style>
 @endsection

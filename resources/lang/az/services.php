@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'page_title' => 'Bizim Xidmətlərimiz',
-    'page_subtitle' => 'Peşəkar komandamızla keyfiyyətli tikinti xidmətləri təqdim edirik',
+    'page_title' => 'Bizim xidmətlərimiz.',
+    'page_subtitle' => 'Hər tikinti layihəsinə doğru ekspertiza ilə başlayırıq. Keyfiyyət, etibar və stabilliyi təmin edən tikinti xidmətlərimizlə tanış olun.',
     
     // Construction
     'construction' => 'Tikinti',
